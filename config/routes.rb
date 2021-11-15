@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :nevelprods
   resources :lietotajaparametrs
   devise_for :users
   root 'lietotajaparametrs#index'

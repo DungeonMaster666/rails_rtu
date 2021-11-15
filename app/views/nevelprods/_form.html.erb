@@ -1,0 +1,27 @@
+<%= form_with(model: nevelprod) do |form| %>
+  <% if nevelprod.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(nevelprod.errors.count, "error") %> prohibited this nevelprod from being saved:</h2>
+
+      <ul>
+        <% nevelprod.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <% form.label :user_id %>
+    <%= form.number_field :user_id, id: :nevelprods_user_id, value: current_user.id, type: :hidden  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prod_nos %>
+    <%= form.text_field :prod_nos %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

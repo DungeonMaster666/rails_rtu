@@ -23,9 +23,7 @@
         <td><%= lietotajaparametr.vecums %></td>
         <td><%= lietotajaparametr.dzimums %></td>
         <td><%= lietotajaparametr.user_id %></td>
-          <% if lietotajaparametr.user == current_user %>
             <td><%= link_to 'Edit', edit_lietotajaparametr_path(lietotajaparametr) %></td>
-          <% end %>
         <% end %>
       </tr>
     <% end %>
@@ -34,4 +32,7 @@
 
 <br>
 
-<%= link_to 'New Lietotajaparametr', new_lietotajaparametr_path %>
+<%= link_to 'New Lietotajaparametr', new_lietotajaparametr_path, class: "btn btn-secondary"  %>
+<br/>
+<br/>
+<%= link_to 'Nevelāmie produkti', 'nevelprods#index', class: "btn btn-secondary" %>

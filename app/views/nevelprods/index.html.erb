@@ -1,0 +1,30 @@
+
+
+<h1>Nevelprods</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Prod nos</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nevelprods.each do |nevelprod| %>
+      <% if current_user == nevelprod.user %>
+        <tr>
+          <td><%= nevelprod.user_id %></td>
+          <td><%= nevelprod.prod_nos %></td>
+          <td><%= link_to 'Edit', edit_nevelprod_path(nevelprod) %></td>
+          <td><%= link_to 'Destroy', nevelprod, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Nevelprod', new_nevelprod_path %>

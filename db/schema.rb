@@ -10,24 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_15_122305) do
-
-  create_table "lietotaja_nevel_prods", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "prod_nos"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "lietotaja_parametrs", force: :cascade do |t|
-    t.float "svars"
-    t.integer "augums"
-    t.integer "vecums"
-    t.string "dzimums"
-    t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 2021_11_15_132006) do
 
   create_table "lietotajaparametrs", force: :cascade do |t|
     t.float "svars"
@@ -35,6 +18,13 @@ ActiveRecord::Schema.define(version: 2021_11_15_122305) do
     t.integer "vecums"
     t.string "dzimums"
     t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "nevelprods", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "prod_nos"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
