@@ -1,6 +1,6 @@
-class CreateLietotajaParametrs < ActiveRecord::Migration[6.1]
+class CreateLietotajaparametrs < ActiveRecord::Migration[6.1]
   def change
-    create_table :lietotaja_parametrs do |t|
+    create_table :lietotajaparametrs do |t|
       t.float :svars
       t.integer :augums
       t.integer :vecums

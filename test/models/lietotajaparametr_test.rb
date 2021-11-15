@@ -1,6 +1,6 @@
 require "test_helper"
 
-class LietotajaParametrTest < ActiveSupport::TestCase
+class LietotajaparametrTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

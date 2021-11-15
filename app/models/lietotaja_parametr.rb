@@ -1,2 +1,0 @@
-class LietotajaParametr < ApplicationRecord
-end

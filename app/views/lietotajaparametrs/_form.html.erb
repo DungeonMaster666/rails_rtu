@@ -1,10 +1,10 @@
-<%= form_with(model: lietotaja_parametr) do |form| %>
-  <% if lietotaja_parametr.errors.any? %>
+<%= form_with(model: lietotajaparametr) do |form| %>
+  <% if lietotajaparametr.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(lietotaja_parametr.errors.count, "error") %> prohibited this lietotaja_parametr from being saved:</h2>
+      <h2><%= pluralize(lietotajaparametr.errors.count, "error") %> prohibited this lietotajaparametr from being saved:</h2>
 
       <ul>
-        <% lietotaja_parametr.errors.each do |error| %>
+        <% lietotajaparametr.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -32,8 +32,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
+    <% form.label :user_id %>
+    <%= form.number_field :user_id, id: :lietotajaparamets_user_id, value: current_user.id, type: :hidden  %>
   </div>
 
   <div class="actions">
