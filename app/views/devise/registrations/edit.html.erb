@@ -1,43 +1,88 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="card">
+  <div class="card-header">
+    <h4> Rediģēt profilu </h4>
   </div>
+  <div class="card-body">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+      <div class="field form-group">
+        <% f.label :email %><br />
+        <%= f.email_field :email, class: "form-control", placeholder: "E-mail", autofocus: true, autocomplete: "email", disabled: true %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="field form-group">
+        <% f.label :password %><br />
+        <%= f.password_field :password, class: "form-control", placeholder: "Jauna parole (atstāj tukšu, ja negribi neko mainīt)", autocomplete: "new-password" %>
+        <% if @minimum_password_length %>
+
+        <% end %>
+      </div>
       <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+
+      <div class="field form-group">
+        <% f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Jaunas paroles apstiprināšana", autocomplete: "new-password" %>
+      </div>
+      <br />
+      <div class="field form-group">
+        <% f.label :current_password %>
+        <br/>
+        <%= f.password_field :current_password, class: "form-control", placeholder: "Tagadēja parole", autocomplete: "current-password" %>
+      </div>
+      <br />
+      <div class="container bg-light">
+        <div class="row">
+          <div class="col">
+      <div class="actions">
+        <%= f.submit "Mainīt",class:'btn btn-secondary' %>
+      </div>
+          </div>
+        </div>
+      </div>
     <% end %>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+
+
+<h2> <% resource_name.to_s.humanize %></h2>
+
+
+<br /><br/>
+
+<div class="card">
+  <div class="card-header">
+    <h4>Dzēst profilu</h4>
   </div>
+  <div class="card-body">
+    <h6 class="card-title">Nepatika? Ir kādas problēmas? Rakstiet uz m.grishajevs@gmail.com</h6>
+    <br/>
+    <div class="container bg-light">
+      <div class="row">
+        <div class="col">
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+    <%= button_to "Dzēst profilu", registration_path(resource_name),class:'btn btn-danger', data: { confirm: "Are you sure?" }, method: :delete %>
+        </div>
+      </div>
+    </div>
+        </div>
+</div>
+
+<br/>
+
+<div class="container-fluid bg-light">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col">
+<%= link_to "Atpakaļ", :back ,class:'btn btn-secondary'%>
+      </div>
+    </div>
   </div>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<br/>
