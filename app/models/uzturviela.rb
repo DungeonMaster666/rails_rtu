@@ -1,0 +1,2 @@
+class Uzturviela < ApplicationRecord
+end

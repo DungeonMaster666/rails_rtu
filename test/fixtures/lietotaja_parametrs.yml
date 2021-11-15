@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  svars: 1.5
+  augums: 1
+  vecums: 1
+  dzimums: MyString
+  user_id: 1
+
+two:
+  svars: 1.5
+  augums: 1
+  vecums: 1
+  dzimums: MyString
+  user_id: 1

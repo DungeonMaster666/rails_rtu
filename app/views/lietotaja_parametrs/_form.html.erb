@@ -1,0 +1,42 @@
+<%= form_with(model: lietotaja_parametr) do |form| %>
+  <% if lietotaja_parametr.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lietotaja_parametr.errors.count, "error") %> prohibited this lietotaja_parametr from being saved:</h2>
+
+      <ul>
+        <% lietotaja_parametr.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :svars %>
+    <%= form.text_field :svars %>
+  </div>
+
+  <div class="field">
+    <%= form.label :augums %>
+    <%= form.number_field :augums %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vecums %>
+    <%= form.number_field :vecums %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dzimums %>
+    <%= form.text_field :dzimums %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

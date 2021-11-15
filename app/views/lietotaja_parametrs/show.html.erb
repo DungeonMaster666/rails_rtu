@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Svars:</strong>
+  <%= @lietotaja_parametr.svars %>
+</p>
+
+<p>
+  <strong>Augums:</strong>
+  <%= @lietotaja_parametr.augums %>
+</p>
+
+<p>
+  <strong>Vecums:</strong>
+  <%= @lietotaja_parametr.vecums %>
+</p>
+
+<p>
+  <strong>Dzimums:</strong>
+  <%= @lietotaja_parametr.dzimums %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @lietotaja_parametr.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_lietotaja_parametr_path(@lietotaja_parametr) %> |
+<%= link_to 'Back', lietotaja_parametrs_path %>

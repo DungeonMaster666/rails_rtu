@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lietotaja Parametrs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Svars</th>
+      <th>Augums</th>
+      <th>Vecums</th>
+      <th>Dzimums</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lietotaja_parametrs.each do |lietotaja_parametr| %>
+      <tr>
+        <td><%= lietotaja_parametr.svars %></td>
+        <td><%= lietotaja_parametr.augums %></td>
+        <td><%= lietotaja_parametr.vecums %></td>
+        <td><%= lietotaja_parametr.dzimums %></td>
+        <td><%= lietotaja_parametr.user_id %></td>
+        <td><%= link_to 'Show', lietotaja_parametr %></td>
+        <td><%= link_to 'Edit', edit_lietotaja_parametr_path(lietotaja_parametr) %></td>
+        <td><%= link_to 'Destroy', lietotaja_parametr, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lietotaja Parametr', new_lietotaja_parametr_path %>
