@@ -1,6 +1,6 @@
 require "test_helper"
 
-class UzturvielaTest < ActiveSupport::TestCase
+class VelprodTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

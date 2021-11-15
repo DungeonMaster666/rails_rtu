@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :lietotajaparametrs
   has_many :nevelprods
+  has_many :velprods
 end

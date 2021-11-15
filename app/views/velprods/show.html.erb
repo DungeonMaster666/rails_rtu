@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @velprod.user_id %>
+</p>
+
+<p>
+  <strong>Prod nos:</strong>
+  <%= @velprod.prod_nos %>
+</p>
+
+<p>
+  <strong>Nutrition1:</strong>
+  <%= @velprod.nutrition1 %>
+</p>
+
+<%= link_to 'Edit', edit_velprod_path(@velprod) %> |
+<%= link_to 'Back', velprods_path %>

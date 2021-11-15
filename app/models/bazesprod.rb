@@ -1,0 +1,2 @@
+class Bazesprod < ApplicationRecord
+end
