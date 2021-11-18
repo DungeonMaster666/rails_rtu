@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :bazesprods
   resources :velprods
   resources :nevelprods
   resources :lietotajaparametrs

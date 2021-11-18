@@ -5,6 +5,10 @@ class VelprodsController < ApplicationController
   # GET /velprods or /velprods.json
   def index
     @velprods = Velprod.all
+    @baze = Bazesprod.order('prodnos ASC').all
+    @bazesprodsaraksts = Bazesprod.order('prodnos ASC').all.map { |prod| [prod.prodnos, prod.nutrition1] }
+    @bazesprodsaraksts = @bazesprodsaraksts.unshift("")
+
   end
 
   # GET /velprods/1 or /velprods/1.json

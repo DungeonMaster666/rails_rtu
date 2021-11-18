@@ -5,6 +5,7 @@ class LietotajaparametrsController < ApplicationController
   # GET /lietotajaparametrs or /lietotajaparametrs.json
   def index
     @lietotajaparametrs = Lietotajaparametr.all
+
   end
 
   # GET /lietotajaparametrs/1 or /lietotajaparametrs/1.json

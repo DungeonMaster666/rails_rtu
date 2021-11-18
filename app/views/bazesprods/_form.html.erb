@@ -1,0 +1,27 @@
+<%= form_with(model: bazesprod) do |form| %>
+  <% if bazesprod.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bazesprod.errors.count, "error") %> prohibited this bazesprod from being saved:</h2>
+
+      <ul>
+        <% bazesprod.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :prodnos %>
+    <%= form.text_field :prodnos %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nutrition1 %>
+    <%= form.text_field :nutrition1 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
