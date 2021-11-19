@@ -5,6 +5,7 @@ class NevelprodsController < ApplicationController
   # GET /nevelprods or /nevelprods.json
   def index
     @nevelprods = Nevelprod.all
+    @baze = Bazesprod.order('prodnos ASC').all
   end
 
   # GET /nevelprods/1 or /nevelprods/1.json
@@ -54,6 +55,24 @@ class NevelprodsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to nevelprods_url, notice: "Nevelprod was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def adding
+    if params[:tocopy] != "" and params[:tocopy].to_i != 0  #defense from sql injection
+      if !Bazesprod.exists?(params[:tocopy])
+        redirect_to nevelprods_path, notice: "Jāievada eksistējošo produktu"
+      else
+        if Nevelprod.exists?(prod_nos: Bazesprod.where(id: params[:tocopy]).first.prodnos)
+          redirect_to nevelprods_path, notice: "Izvēlētais produkts jau ir pievienots"
+        else
+          @selectedprod = Bazesprod.where(id: params[:tocopy]).first
+          Nevelprod.create({:user_id => current_user.id, :prod_nos => @selectedprod.prodnos})
+          redirect_to nevelprods_path
+        end
+      end
+    else
+      redirect_to nevelprods_path, notice: "Jāizvēlās produktu"
     end
   end
 

@@ -5,7 +5,6 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
       <th>Prod nos</th>
       <th colspan="2"></th>
     </tr>
@@ -15,7 +14,6 @@
     <% @nevelprods.each do |nevelprod| %>
       <% if current_user == nevelprod.user %>
         <tr>
-          <td><%= nevelprod.user_id %></td>
           <td><%= nevelprod.prod_nos %></td>
           <td><%= link_to 'Edit', edit_nevelprod_path(nevelprod) %></td>
           <td><%= link_to 'Destroy', nevelprod, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -24,6 +22,12 @@
     <% end %>
   </tbody>
 </table>
+
+<br/><br/>
+<%= form_with(url: '/nevelprods/adding', method: 'get') do |f| %>
+  <%= f.select :tocopy, options_from_collection_for_select(@baze, 'id', 'prodnos'), prompt: 'Select prod to edit', class: "form-select"  %>
+  <%= f.submit "Add product" %>
+<% end %>
 
 <br>
 

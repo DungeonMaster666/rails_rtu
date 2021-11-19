@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  resources :edienkartes
+  get 'lietotajaparametrs/activatepython'
   get 'velprods/test'
+  get 'nevelprods/adding'
   resources :bazesprods
   resources :velprods
   resources :nevelprods

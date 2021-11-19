@@ -9,7 +9,6 @@
       <th>Augums</th>
       <th>Vecums</th>
       <th>Dzimums</th>
-      <th>User</th>
       <th></th>
     </tr>
   </thead>
@@ -22,7 +21,6 @@
         <td><%= lietotajaparametr.augums %></td>
         <td><%= lietotajaparametr.vecums %></td>
         <td><%= lietotajaparametr.dzimums %></td>
-        <td><%= lietotajaparametr.user_id %></td>
             <td><%= link_to 'Edit', edit_lietotajaparametr_path(lietotajaparametr) %></td>
         <% end %>
       </tr>
@@ -38,3 +36,8 @@
 <br/>
 <br/>
 <%= link_to 'Velāmie produkti', 'velprods#index', class: "btn btn-secondary" %>
+<br/>
+<br/>
+<%= form_with(url: '/lietotajaparametrs/activatepython', method: 'get') do |f| %>
+  <%= f.submit "Radīt rezultātus" %>
+<% end %>

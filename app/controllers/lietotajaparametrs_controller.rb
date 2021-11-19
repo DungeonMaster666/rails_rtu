@@ -63,6 +63,11 @@ class LietotajaparametrsController < ApplicationController
     redirect_to lietotajaparametrs_path, notice: "Nav tiesību rediģēt" if @lietotajaparametr.nil?
   end
 
+  def activatepython
+    @testshow = params[:user_id]
+    @edienkartes = Edienkarte.all
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_lietotajaparametr

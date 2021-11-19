@@ -1,0 +1,52 @@
+<%= form_with(model: edienkarte) do |form| %>
+  <% if edienkarte.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(edienkarte.errors.count, "error") %> prohibited this edienkarte from being saved:</h2>
+
+      <ul>
+        <% edienkarte.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prodnos %>
+    <%= form.text_field :prodnos %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nutrition1 %>
+    <%= form.text_field :nutrition1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :shopnos %>
+    <%= form.text_field :shopnos %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cena %>
+    <%= form.text_field :cena %>
+  </div>
+
+  <div class="field">
+    <%= form.label :linktophoto %>
+    <%= form.text_field :linktophoto %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.text_field :quantity %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

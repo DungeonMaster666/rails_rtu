@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :lietotajaparametrs
   has_many :nevelprods
   has_many :velprods
+  has_many :edienkartes
 end
