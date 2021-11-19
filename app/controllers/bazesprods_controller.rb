@@ -1,6 +1,5 @@
 class BazesprodsController < ApplicationController
   before_action :set_bazesprod, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, except: [:index]
   before_action :admin_user, only: [:edit, :destroy, :new, :update]
   # GET /bazesprods or /bazesprods.json
   def index

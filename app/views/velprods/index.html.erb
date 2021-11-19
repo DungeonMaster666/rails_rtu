@@ -29,11 +29,11 @@
 
 <br/><br/>
 
+<%= form_with(url: '/velprods/test', method: 'get') do |f| %>
 
-<select class="form-select" aria-label="Default select example">
-  <%= options_for_select(@bazesprodsaraksts)  %>
-</select>
-
+  <%= f.select :tocopy, options_from_collection_for_select(@baze, 'id', 'prodnos'), prompt: 'Select prod to edit', class: "form-select"  %>
+  <%= f.submit "Add product" %>
+<% end %>
 <br>
 
 <%= link_to 'New Velprod', new_velprod_path %>

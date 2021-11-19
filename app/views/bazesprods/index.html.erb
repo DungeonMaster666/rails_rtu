@@ -16,7 +16,7 @@
       <tr>
         <td><%= bazesprod.prodnos %></td>
         <td><%= bazesprod.nutrition1 %></td>
-          <% if current_user.admin %>
+        <% if current_user && current_user.admin? %>
             <td><%= link_to 'Show', bazesprod %></td>
             <td><%= link_to 'Edit', edit_bazesprod_path(bazesprod) %></td>
             <td><%= link_to 'Destroy', bazesprod, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,6 +27,6 @@
 </table>
 
 <br>
-<% if current_user.admin %>
+<% if current_user && current_user.admin? %>
   <%= link_to 'New Bazesprod', new_bazesprod_path %>
 <% end %>
