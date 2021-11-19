@@ -52,6 +52,24 @@ class VelprodsController < ApplicationController
     end
   end
 
+  def test
+    if params[:tocopy] != "" and params[:tocopy].to_i != 0  #defense from sql injection
+      if !Bazesprod.exists?(params[:tocopy])
+        redirect_to velprods_path, notice: "Jāievada eksistējošo produktu"
+      else
+        if Velprod.exists?(prod_nos: Bazesprod.where(id: params[:tocopy]).first.prodnos)
+          redirect_to velprods_path, notice: "Izvēlētais produkts jau ir pievienots"
+        else
+          @selectedprod = Bazesprod.where(id: params[:tocopy]).first
+          Velprod.create({:user_id => current_user.id, :prod_nos => @selectedprod.prodnos, :nutrition1 => @selectedprod.nutrition1})
+          redirect_to velprods_path
+        end
+      end
+    else
+      redirect_to velprods_path, notice: "Jāizvēlās produktu"
+    end
+  end
+
   # DELETE /velprods/1 or /velprods/1.json
   def destroy
     @velprod.destroy
