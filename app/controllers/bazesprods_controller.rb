@@ -3,7 +3,7 @@ class BazesprodsController < ApplicationController
   before_action :admin_user, only: [:edit, :destroy, :new, :update]
   # GET /bazesprods or /bazesprods.json
   def index
-    @bazesprods = Bazesprod.all
+    @bazesprods = Bazesprod.order("prodnos ASC").page(params[:page])
   end
 
   # GET /bazesprods/1 or /bazesprods/1.json

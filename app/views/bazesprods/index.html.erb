@@ -27,6 +27,26 @@
 </table>
 
 <br>
-<% if current_user && current_user.admin? %>
-  <%= link_to 'New Bazesprod', new_bazesprod_path %>
-<% end %>
+
+
+
+<div class="container-fluid bg-light">
+  <div class="col-md-12 text-center">
+    <div class="row">
+      <div class="col">
+        <% if current_user && current_user.admin? %>
+          <%= link_to 'New Bazesprod', new_bazesprod_path %>
+        <% end %>
+      </div>
+      <div class="col">
+        <div class="container pagination justify-content-center" >
+          <%= paginate @bazesprods %>
+        </div>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+  </div>
+</div>
+
+<br/><br/>
