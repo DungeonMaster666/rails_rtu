@@ -65,7 +65,7 @@ class LietotajaparametrsController < ApplicationController
 
   def activatepython
     @testshow = params[:user_id]
-    @edienkartes = Edienkarte.all
+    @edienkartes = Edienkarte.where(user_id: current_user.id).all
   end
 
   private
