@@ -57,7 +57,7 @@ class VelprodsController < ApplicationController
       if !Bazesprod.exists?(params[:tocopy])
         redirect_to velprods_path, notice: "Jāievada eksistējošo produktu"
       else
-        if Velprod.exists?(prod_nos: Bazesprod.where(id: params[:tocopy]).first.prodnos)
+        if Velprod.exists?(prod_nos: Bazesprod.where(id: params[:tocopy]).first.prodnos, user_id: current_user.id)
           redirect_to velprods_path, notice: "Izvēlētais produkts jau ir pievienots"
         else
           @selectedprod = Bazesprod.where(id: params[:tocopy]).first
