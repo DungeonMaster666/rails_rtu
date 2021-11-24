@@ -17,15 +17,17 @@
 
   <tbody>
     <% @edienkartes.each do |edienkarte| %>
-      <tr>
-        <td><%= edienkarte.prodnos %></td>
-        <td><%= edienkarte.nutrition1 %></td>
-        <td><%= edienkarte.shopnos %></td>
-        <td><%= edienkarte.cena %></td>
-        <td><%= edienkarte.linktophoto %></td>
-        <td><%= edienkarte.quantity %></td>
-        <td><%= link_to 'Show', edienkarte %></td>
-      </tr>
+      <% if current_user == edienkarte.user %>
+        <tr>
+          <td><%= edienkarte.prodnos %></td>
+          <td><%= edienkarte.nutrition1 %></td>
+          <td><%= edienkarte.shopnos %></td>
+          <td><%= edienkarte.cena %></td>
+          <td><%= edienkarte.linktophoto %></td>
+          <td><%= edienkarte.quantity %></td>
+          <td><%= link_to 'Show', edienkarte %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
