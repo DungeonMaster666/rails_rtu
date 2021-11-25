@@ -5,8 +5,11 @@
 <table>
   <thead>
     <tr>
-      <th>Prodnos</th>
-      <th>Nutrition1</th>
+      <th>Produkts</th>
+      <th>Olbaltumvielas</th>
+      <th>Tauki</th>
+      <th>Ogļh.</th>
+      <th>Kcal</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,7 +18,10 @@
     <% @bazesprods.each do |bazesprod| %>
       <tr>
         <td><%= bazesprod.prodnos %></td>
-        <td><%= bazesprod.nutrition1 %></td>
+        <td><%= bazesprod.olb %></td>
+        <td><%= bazesprod.tauki %></td>
+        <td><%= bazesprod.oglh %></td>
+        <td><%= bazesprod.kcal %></td>
         <% if current_user && current_user.admin? %>
             <td><%= link_to 'Show', bazesprod %></td>
             <td><%= link_to 'Edit', edit_bazesprod_path(bazesprod) %></td>

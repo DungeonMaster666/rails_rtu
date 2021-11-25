@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_19_184103) do
+ActiveRecord::Schema.define(version: 2021_11_25_130110) do
 
   create_table "bazesprods", force: :cascade do |t|
     t.string "prodnos"
-    t.float "nutrition1"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.string "olb"
+    t.string "tauki"
+    t.string "oglh"
+    t.string "kcal"
+    t.string "A"
+    t.string "B1"
+    t.string "B2"
+    t.string "C"
+    t.string "Ca"
+    t.string "P"
+    t.string "Fe"
   end
 
   create_table "edienkartes", force: :cascade do |t|
@@ -64,9 +72,17 @@ ActiveRecord::Schema.define(version: 2021_11_19_184103) do
   create_table "velprods", force: :cascade do |t|
     t.integer "user_id"
     t.string "prod_nos"
-    t.string "nutrition1"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.string "olb"
+    t.string "tauki"
+    t.string "oglh"
+    t.string "kcal"
+    t.string "A"
+    t.string "B1"
+    t.string "B2"
+    t.string "C"
+    t.string "Ca"
+    t.string "P"
+    t.string "Fe"
   end
 
 end

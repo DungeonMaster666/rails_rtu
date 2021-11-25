@@ -25,7 +25,7 @@ gem 'kaminari', :git => 'https://github.com/kaminari/kaminari'
 gem 'devise', '~> 4.8'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
+gem "roo", "~> 2.8.0"
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 

@@ -6,8 +6,7 @@ class VelprodsController < ApplicationController
   def index
     @velprods = Velprod.all
     @baze = Bazesprod.order('prodnos ASC').all
-    @bazesprodsaraksts = Bazesprod.order('prodnos ASC').all.map { |prod| [prod.prodnos, prod.nutrition1] }
-    @bazesprodsaraksts = @bazesprodsaraksts.unshift("")
+
 
   end
 
@@ -61,7 +60,7 @@ class VelprodsController < ApplicationController
           redirect_to velprods_path, notice: "Izvēlētais produkts jau ir pievienots"
         else
           @selectedprod = Bazesprod.where(id: params[:tocopy]).first
-          Velprod.create({:user_id => current_user.id, :prod_nos => @selectedprod.prodnos, :nutrition1 => @selectedprod.nutrition1})
+          Velprod.create({:user_id => current_user.id, :prod_nos => @selectedprod.prodnos, :olb => @selectedprod.olb, :tauki => @selectedprod.tauki, :oglh => @selectedprod.oglh, :kcal => @selectedprod.kcal, :A => @selectedprod.A, :B1 => @selectedprod.B1, :B2 => @selectedprod.B2, :C => @selectedprod.C, :Ca => @selectedprod.Ca, :P => @selectedprod.P, :Fe => @selectedprod.Fe})
           redirect_to velprods_path
         end
       end

@@ -16,7 +16,6 @@
       <% if current_user == velprod.user %>
         <tr>
           <td><%= velprod.prod_nos %></td>
-          <td><%= velprod.nutrition1 %></td>
           <td><%= link_to 'Edit', edit_velprod_path(velprod) %></td>
           <td><%= link_to 'Destroy', velprod, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
