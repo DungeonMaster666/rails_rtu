@@ -71,6 +71,6 @@ class BazesprodsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def bazesprod_params
-      params.require(:bazesprod).permit(:prodnos, :nutrition1)
+      params.require(:bazesprod).permit(:prodnos, :olb, :tauki, :oglh, :kcal, :A, :B1, :B2, :C, :Ca, :P, :Fe)
     end
 end

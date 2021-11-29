@@ -92,6 +92,6 @@ class VelprodsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def velprod_params
-      params.require(:velprod).permit(:user_id, :prod_nos, :nutrition1)
+      params.require(:velprod).permit(:user_id, :prod_nos, :olb, :tauki, :oglh, :kcal, :A, :B1, :B2, :C, :Ca, :P, :Fe)
     end
 end
