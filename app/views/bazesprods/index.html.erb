@@ -22,8 +22,8 @@
         <td><%= bazesprod.tauki %></td>
         <td><%= bazesprod.oglh %></td>
         <td><%= bazesprod.kcal %></td>
+        <td><%= link_to 'Show', bazesprod %></td>
         <% if current_user && current_user.admin? %>
-            <td><%= link_to 'Show', bazesprod %></td>
             <td><%= link_to 'Edit', edit_bazesprod_path(bazesprod) %></td>
             <td><%= link_to 'Destroy', bazesprod, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
