@@ -2,6 +2,7 @@ import sys
 from cvxopt.modeling import variable, op
 
 def main():
+    print("test")
     initial_products = [["Auzu putraimi", 13, 6.5, 61.1, 380, 0.92], ["Griķu putraimi", 12.5, 2.5, 67.4, 254, 1.85], ["Grūbas", 8.9, 1.2, 72.4, 345, 2.26]]
     wanted_products = [["Gaļa", 25, 8, 75, 440, 3.00]]
     unwanted_products = []
