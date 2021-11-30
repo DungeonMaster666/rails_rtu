@@ -1,7 +1,7 @@
 class LietotajaparametrsController < ApplicationController
   before_action :set_lietotajaparametr, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update]
   # GET /lietotajaparametrs or /lietotajaparametrs.json
   def index
     @lietotajaparametrs = Lietotajaparametr.all
@@ -14,7 +14,11 @@ class LietotajaparametrsController < ApplicationController
 
   # GET /lietotajaparametrs/new
   def new
-    @lietotajaparametr = current_user.lietotajaparametrs.build
+    if Lietotajaparametr.exists?(user_id: current_user.id)
+      redirect_to lietotajaparametrs_path, notice: "Nav piekļuves"
+    else
+      @lietotajaparametr = current_user.lietotajaparametrs.build
+    end
   end
 
   # GET /lietotajaparametrs/1/edit

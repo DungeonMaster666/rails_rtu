@@ -10,6 +10,7 @@
       <th>Vecums</th>
       <th>Dzimums</th>
       <th></th>
+
     </tr>
   </thead>
 
@@ -28,8 +29,16 @@
   </tbody>
 </table>
 
-<br>
 
+<%# shows button if dumb user closed parameter creating page during registration %>
+
+<br/>
+  <% unless Lietotajaparametr.exists?(user_id: current_user.id) %>
+    <%=  link_to 'Pievienot parametrus', 'lietotajaparametrs/new', class: "btn btn-secondary"  %>
+    <br/>
+  <%  end %>
+
+<%# --------------------------------------------------------------------------------- %>
 
 <br/>
 <%= link_to 'Nevelāmie produkti', 'nevelprods#index', class: "btn btn-secondary" %>
@@ -38,6 +47,10 @@
 <%= link_to 'Velāmie produkti', 'velprods#index', class: "btn btn-secondary" %>
 <br/>
 <br/>
-<%= form_with(url: '/lietotajaparametrs/activatepython', method: 'get') do |f| %>
-  <%= f.submit "Radīt rezultātus" %>
+
+<%# shows button only if dumb user didnt close parameter creating page during registration %>
+<% if Lietotajaparametr.exists?(user_id: current_user.id) %>
+  <%= form_with(url: '/lietotajaparametrs/activatepython', method: 'get') do |f| %>
+    <%= f.submit "Radīt rezultātus" %>
+  <% end %>
 <% end %>

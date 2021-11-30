@@ -1,6 +1,7 @@
 class EdienkartesController < ApplicationController
   before_action :set_edienkarte, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
+  before_action :admin_user, only: [:edit, :destroy, :new, :update, :index]
   before_action :correct_user, only: [:show]
   # GET /edienkartes or /edienkartes.json
   def index
@@ -62,6 +63,12 @@ class EdienkartesController < ApplicationController
   def correct_user
     @edienkarte = current_user.edienkartes.find_by(id: params[:id])
     redirect_to edienkartes_path, notice: "Nav tiesību rediģēt" if @edienkarte.nil?
+  end
+
+  def admin_user
+    if !current_user.admin?
+      redirect_to(lietotajaparametrs_path, notice: "Nav tiesību izpildīt darbību!")
+    end
   end
 
   private

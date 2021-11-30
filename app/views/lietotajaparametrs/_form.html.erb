@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :dzimums %>
-    <%= form.text_field :dzimums %>
+    <%= form.select :dzimums, options_for_select([['Sieviešu', 'S'], ['Vīriešu', 'V']]), prompt: 'Izvēle', class: "form-select"  %>
   </div>
 
   <div class="field">

@@ -27,8 +27,8 @@
 <br/><br/>
 
 <%= form_with(url: '/velprods/test', method: 'get') do |f| %>
-  <%= f.select :tocopy, options_from_collection_for_select(@baze, 'id', 'prodnos'), prompt: 'Select prod to edit', class: ""  %>
-  <%= f.submit "Add product" %>form-select
+  <%= f.select :tocopy, options_from_collection_for_select(@baze, 'id', 'prodnos'), prompt: 'Select prod to edit', class: "form-select"  %>
+  <%= f.submit "Add product" %>
 <% end %>
 <br>
 
