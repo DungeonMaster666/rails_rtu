@@ -9,6 +9,9 @@
       <th>Augums</th>
       <th>Vecums</th>
       <th>Dzimums</th>
+      <th>Koeficients</th>
+      <th>Mērķa svars</th>
+
       <th></th>
 
     </tr>
@@ -22,7 +25,9 @@
         <td><%= lietotajaparametr.augums %></td>
         <td><%= lietotajaparametr.vecums %></td>
         <td><%= lietotajaparametr.dzimums %></td>
-            <td><%= link_to 'Edit', edit_lietotajaparametr_path(lietotajaparametr) %></td>
+        <td><%= lietotajaparametr.koef %></td>
+        <td><%= lietotajaparametr.goal %></td>
+        <td><%= link_to 'Edit', edit_lietotajaparametr_path(lietotajaparametr) %></td>
         <% end %>
       </tr>
     <% end %>
