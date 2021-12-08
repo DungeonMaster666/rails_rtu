@@ -80,6 +80,6 @@ class LietotajaparametrsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def lietotajaparametr_params
-      params.require(:lietotajaparametr).permit(:svars, :augums, :vecums, :dzimums, :user_id)
+      params.require(:lietotajaparametr).permit(:svars, :augums, :vecums, :dzimums, :user_id, :koef, :goal)
     end
 end

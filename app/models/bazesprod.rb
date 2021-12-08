@@ -11,4 +11,6 @@ class Bazesprod < ApplicationRecord
   validates :Ca, presence: true, format: { with: /\A([1-9]\d*|0)(\.\d+)?\Z/, message: '- Ievadiet tikai vienu veselo skaitli vai decimalo skaitli' }
   validates :P, presence: true, format: { with: /\A([1-9]\d*|0)(\.\d+)?\Z/, message: '- Ievadiet tikai vienu veselo skaitli vai decimalo skaitli' }
   validates :Fe, presence: true, format: { with: /\A([1-9]\d*|0)(\.\d+)?\Z/, message: '- Ievadiet tikai vienu veselo skaitli vai decimalo skaitli' }
+  validates :limit, presence: true, format: { with: /\A([1-9]\d*|0)(\.\d+)?\Z/, message: '- Ievadiet tikai vienu veselo skaitli vai decimalo skaitli' }
+
 end

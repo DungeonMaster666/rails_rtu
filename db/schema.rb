@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_25_130110) do
+ActiveRecord::Schema.define(version: 2021_12_08_174344) do
 
   create_table "bazesprods", force: :cascade do |t|
     t.string "prodnos"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2021_11_25_130110) do
     t.string "Ca"
     t.string "P"
     t.string "Fe"
+    t.string "limit", default: "0"
   end
 
   create_table "edienkartes", force: :cascade do |t|
@@ -47,6 +48,8 @@ ActiveRecord::Schema.define(version: 2021_11_25_130110) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "koef", default: 0.0
+    t.float "goal", default: 0.0
   end
 
   create_table "nevelprods", force: :cascade do |t|
@@ -83,6 +86,7 @@ ActiveRecord::Schema.define(version: 2021_11_25_130110) do
     t.string "Ca"
     t.string "P"
     t.string "Fe"
+    t.string "limit", default: "0"
   end
 
 end
