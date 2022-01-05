@@ -11,15 +11,19 @@
     </div>
   <% end %>
 
+<h1> <%= "#{velprod.prod_nos}" %> </h1>
+
   <div class="field">
     <% form.label :user_id %>
     <%= form.number_field :user_id, id: :velprods_user_id, value: current_user.id, type: :hidden  %>
   </div>
 
+<% unless @type=='edit' %>
   <div class="field">
     <%= form.label :prod_nos %>
     <%= form.text_field :prod_nos %>
   </div>
+<% end %>
 
   <div class="field">
     <%= form.label :olb %>

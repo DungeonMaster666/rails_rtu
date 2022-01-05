@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :vecums %>
-    <%= form.number_field :vecums %>
+    <%= form.number_field :vecums, class: "form-control" %>
   </div>
 
   <div class="field">
@@ -37,13 +37,14 @@
   </div>
 
   <div class="field">
-    <%= form.label :koef %>
-    <%= form.text_field :koef %>
+    <%= form.label I18n.t(:koef) %>
+    <%= form.select :koef, options_for_select([['Neaktīvs', 1.2], ['Mazāk aktīvs', 1.5], ['Vidēji aktīvs', 1.5], ['Vairāk aktīvs', 1.7], ['Ļoti aktīvs', 1.9 ]]), prompt: 'Izvēle', class: "form-select"  %>
   </div>
 
   <div class="field">
     <%= form.label :goal %>
-    <%= form.text_field :goal %>
+    <%= form.select :goal, options_for_select([['Tagadēja svara saglabāšana', 0],['Samazināt', 1], ['Muskulatūras palielināšana', 2], ['Svara samazināšana un muskulatatūras palielināšana', 3], ['Massas palielināšana', 4]]), prompt: 'Izvēle', class: "form-select"  %>
+
   </div>
 
   <div class="actions">

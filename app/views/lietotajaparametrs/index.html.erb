@@ -53,7 +53,10 @@
 <br/>
 <br/>
 
-<%# shows button only if dumb user didnt close parameter creating page during registration %>
+
+
+<%# shows button only if dumb user didnt close 'parameter creating page' during registration %>
+
 <% if Lietotajaparametr.exists?(user_id: current_user.id) %>
   <%= form_with(url: '/lietotajaparametrs/activatepython', method: 'get') do |f| %>
     <%= f.submit "Radīt rezultātus" %>

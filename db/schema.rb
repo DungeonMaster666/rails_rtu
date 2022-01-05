@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_12_08_174344) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "bazesprods", force: :cascade do |t|
     t.string "prodnos"
     t.string "olb"

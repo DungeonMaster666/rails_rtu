@@ -3,11 +3,10 @@ class VelprodsController < ApplicationController
   before_action :authenticate_user!
   before_action :correct_user, only: [:edit, :update, :destroy]
   # GET /velprods or /velprods.json
+  @type = 'any'
   def index
     @velprods = Velprod.all
     @baze = Bazesprod.order('prodnos ASC').all
-
-
   end
 
   # GET /velprods/1 or /velprods/1.json
@@ -21,6 +20,7 @@ class VelprodsController < ApplicationController
 
   # GET /velprods/1/edit
   def edit
+    @type = 'edit'
   end
 
   # POST /velprods or /velprods.json
