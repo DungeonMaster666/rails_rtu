@@ -1,5 +1,5 @@
 class EdienkartesController < ApplicationController
-  before_action :set_edienkarte, only: %i[ show edit update destroy ]
+  before_action :set_edienkarte, only: %i[edit update destroy ]
   before_action :authenticate_user!
   before_action :admin_user, only: [:edit, :destroy, :new, :update, :index]
   before_action :correct_user, only: [:show]
@@ -11,9 +11,17 @@ class EdienkartesController < ApplicationController
   # GET /edienkartes/1 or /edienkartes/1.json
   def show
 
-    @edienkarte2 = Edienkarte.find(params[:id])
+    @edienkarte2 = Edienkarte.find(params[:format])
+     unless Dir.getwd=='/Users/marksgrisajevs/rails_rtu/lib/webCrawlerTest/prodTest/prodTest'
+      Dir.chdir('lib/webCrawlerTest/prodTest/prodTest')
+      system "scrapy crawl barbora -a _product_name='#{@edienkarte2.prodnos}' -a _user_id='#{current_user.id}'"
+     end
+     @edienkarte3 = Edienkarte.find(@edienkarte2.id)
   end
 
+  def tested
+    @edienkarte2 = Edienkarte.find(params[:id])
+  end
   # GET /edienkartes/new
   def new
     @edienkarte = Edienkarte.new
@@ -63,8 +71,8 @@ class EdienkartesController < ApplicationController
 
 
   def correct_user
-    @edienkarte = current_user.edienkartes.find_by(id: params[:id])
-    redirect_to edienkartes_path, notice: "Nav tiesību rediģēt" if @edienkarte.nil?
+    @edienkarte = current_user.edienkartes.find_by(id: params[:format])
+    redirect_to lietotajaparametrs_path, notice: "Nav tiesību rediģēt" if @edienkarte.nil?
   end
 
   def admin_user

@@ -1,17 +1,16 @@
-<% unless Dir.getwd=='/Users/marksgrisajevs/rails_rtu/lib/webCrawlerTest/prodTest/prodTest' %>
-  <% Dir.chdir('lib/webCrawlerTest/prodTest/prodTest') %>
-  <% `scrapy crawl barbora -a _product_name="#{@edienkarte.prodnos}" -a _user_id="#{current_user.id}"` %>
-<% end %>
+
 <br/>
 <div class="card" style="width: 18rem;">
-  <% if @edienkarte2.linktophoto %>
-    <%= image_tag @edienkarte2.linktophoto %>
+  <% if @edienkarte3.linktophoto %>
+    <%= image_tag @edienkarte3.linktophoto %>
   <% end %>
 
   <div class="card-body">
-    <h5 class="card-title"><%= @edienkarte2.prodnos %></h5>
-    <p class="card-text">Produkta daudzums: <%= @edienkarte2.quantity %> g</p>
-    <a ><%= button_to 'Pirkt', @edienkarte2.shopnos, class: "btn btn-primary" %></a>
+    <h5 class="card-title"><%= @edienkarte3.prodnos %></h5>
+    <p class="card-text">Produkta daudzums: <%= @edienkarte3.quantity %> g</p>
+    <p>Produkta cena: €<%= @edienkarte3.cena %></p>
+
+    <a ><%= button_to 'Pirkt', @edienkarte3.shopnos, class: "btn btn-primary" %></a>
   </div>
 </div>
 

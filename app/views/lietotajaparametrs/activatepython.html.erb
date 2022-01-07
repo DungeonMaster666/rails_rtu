@@ -19,7 +19,7 @@
         <tr>
           <td><%= edienkarte.prodnos %></td>
           <td><%= edienkarte.quantity %></td>
-          <td><%= link_to 'Show', edienkarte, {:id => edienkarte.id} %></td>
+          <td><%= link_to('Radīt', edienkartes_tested_path(edienkarte.id))%></td>
         </tr>
       <% end %>
     <% end %>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'lietotajaparametrs/activatepython'
   get 'velprods/test'
   get 'nevelprods/adding'
+  get 'edienkartes/tested'
   resources :bazesprods
   resources :velprods
   resources :nevelprods
