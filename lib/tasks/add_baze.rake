@@ -17,4 +17,14 @@ namespace :add_baze do
     end
     puts "DONE"
   end
+  task cena: :environment do
+    bazesprod = Bazesprod.all
+
+    bazesprod.each do |prod|
+      cena = rand(0.01..7.01).round(2).to_s
+      puts cena
+      prod.update(cena: cena)
+      puts "added element to row"
+    end
+  end
 end

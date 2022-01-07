@@ -1,5 +1,33 @@
-<%= `python3 lib/assets/Dieta.py #{current_user.id}` %>
-<%= render 'results' %>
+<% Dir.chdir(Rails.root) %>
+<% `python3 lib/assets/Dieta2.py #{current_user.id}` %>
+
+
+<h1>Edienkartes</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Prodnos</th>
+    <th>Quantity</th>
+    <th colspan="1"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @edienkartes.each do |edienkarte| %>
+    <% if current_user == edienkarte.user %>
+      <% cache edienkarte do %>
+        <tr>
+          <td><%= edienkarte.prodnos %></td>
+          <td><%= edienkarte.quantity %></td>
+          <td><%= link_to 'Show', edienkarte, {:id => edienkarte.id} %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>
+<br/>
 <br/>
 <%= link_to 'Uz galveni', lietotajaparametrs_path, class: "btn btn-secondary" %>
 <br>
+

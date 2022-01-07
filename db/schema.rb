@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_08_174344) do
+ActiveRecord::Schema.define(version: 2022_01_06_165950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,9 @@ ActiveRecord::Schema.define(version: 2021_12_08_174344) do
     t.string "Ca"
     t.string "P"
     t.string "Fe"
-    t.string "limit", default: "0"
+    t.string "cena", default: "0"
+    t.string "min", default: "0"
+    t.string "max", default: "300"
   end
 
   create_table "edienkartes", force: :cascade do |t|
@@ -89,7 +91,9 @@ ActiveRecord::Schema.define(version: 2021_12_08_174344) do
     t.string "Ca"
     t.string "P"
     t.string "Fe"
-    t.string "limit", default: "0"
+    t.string "cena", default: "0"
+    t.string "min", default: "0"
+    t.string "max", default: "300"
   end
 
 end

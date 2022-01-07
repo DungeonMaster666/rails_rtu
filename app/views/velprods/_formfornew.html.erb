@@ -78,6 +78,21 @@
     <%= form.text_field :Fe %>
   </div>
 
+  <div class="field">
+    <%= form.label :cena %>
+    <%= form.text_field :cena %>
+  </div>
+
+  <div class="field">
+    <%= form.label :min %>
+    <%= form.text_field :min %>
+  </div>
+
+  <div class="field">
+    <%= form.label :max %>
+    <%= form.text_field :max, value: 300 %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

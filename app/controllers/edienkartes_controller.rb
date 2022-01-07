@@ -10,6 +10,8 @@ class EdienkartesController < ApplicationController
 
   # GET /edienkartes/1 or /edienkartes/1.json
   def show
+
+    @edienkarte2 = Edienkarte.find(params[:id])
   end
 
   # GET /edienkartes/new

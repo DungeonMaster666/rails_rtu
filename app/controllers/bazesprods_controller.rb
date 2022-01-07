@@ -22,7 +22,6 @@ class BazesprodsController < ApplicationController
   # POST /bazesprods or /bazesprods.json
   def create
     @bazesprod = Bazesprod.new(bazesprod_params)
-
     respond_to do |format|
       if @bazesprod.save
         format.html { redirect_to @bazesprod, notice: "Bazesprod was successfully created." }
@@ -71,6 +70,6 @@ class BazesprodsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def bazesprod_params
-      params.require(:bazesprod).permit(:prodnos, :olb, :tauki, :oglh, :kcal, :A, :B1, :B2, :C, :Ca, :P, :Fe, :limit)
+      params.require(:bazesprod).permit(:prodnos, :olb, :tauki, :oglh, :kcal, :A, :B1, :B2, :C, :Ca, :P, :Fe, :cena, :min, :max)
     end
 end

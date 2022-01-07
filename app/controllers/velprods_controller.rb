@@ -60,7 +60,7 @@ class VelprodsController < ApplicationController
           redirect_to velprods_path, notice: "Izvēlētais produkts jau ir pievienots"
         else
           @selectedprod = Bazesprod.where(id: params[:tocopy]).first
-          Velprod.create({:user_id => current_user.id, :prod_nos => @selectedprod.prodnos, :olb => @selectedprod.olb, :tauki => @selectedprod.tauki, :oglh => @selectedprod.oglh, :kcal => @selectedprod.kcal, :A => @selectedprod.A, :B1 => @selectedprod.B1, :B2 => @selectedprod.B2, :C => @selectedprod.C, :Ca => @selectedprod.Ca, :P => @selectedprod.P, :Fe => @selectedprod.Fe, :limit => @selectedprod.limit})
+          Velprod.create({:user_id => current_user.id, :prod_nos => @selectedprod.prodnos, :olb => @selectedprod.olb, :tauki => @selectedprod.tauki, :oglh => @selectedprod.oglh, :kcal => @selectedprod.kcal, :A => @selectedprod.A, :B1 => @selectedprod.B1, :B2 => @selectedprod.B2, :C => @selectedprod.C, :Ca => @selectedprod.Ca, :P => @selectedprod.P, :Fe => @selectedprod.Fe, :cena => @selectedprod.cena, :min => @selectedprod.min, :max => @selectedprod.max})
           redirect_to velprods_path
         end
       end
@@ -92,6 +92,6 @@ class VelprodsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def velprod_params
-      params.require(:velprod).permit(:user_id, :prod_nos, :olb, :tauki, :oglh, :kcal, :A, :B1, :B2, :C, :Ca, :P, :Fe, :limit)
+      params.require(:velprod).permit(:user_id, :prod_nos, :olb, :tauki, :oglh, :kcal, :A, :B1, :B2, :C, :Ca, :P, :Fe, :cena, :min, :max)
     end
 end

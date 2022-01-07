@@ -6,10 +6,6 @@
   <thead>
     <tr>
       <th>Prodnos</th>
-      <th>Nutrition1</th>
-      <th>Shopnos</th>
-      <th>Cena</th>
-      <th>Linktophoto</th>
       <th>Quantity</th>
       <th colspan="3"></th>
     </tr>
@@ -17,13 +13,9 @@
 
   <tbody>
     <% @edienkartes.each do |edienkarte| %>
-      <% if current_user == edienkarte.user %>
+      <% if current_user == edienkarte.user_id %>
         <tr>
           <td><%= edienkarte.prodnos %></td>
-          <td><%= edienkarte.nutrition1 %></td>
-          <td><%= edienkarte.shopnos %></td>
-          <td><%= edienkarte.cena %></td>
-          <td><%= edienkarte.linktophoto %></td>
           <td><%= edienkarte.quantity %></td>
           <td><%= link_to 'Show', edienkarte %></td>
         </tr>
