@@ -1,16 +1,64 @@
+<div class="container">
+
+<div class="row">
 
 
-<h1>Lietotajaparametrs</h1>
+<div class="col">
+<div class="card" style="width: 24rem;">
+  <div class="card-body">
+    <h1 class="card-title">Jūsu parametri</h1>
+    <table class="table table-striped table-hover">
+      <thead>
+      </thead>
+      <tbody>
+      <% @lietotajaparametrs.each do |lietotajaparametr| %>
+        <% if current_user == lietotajaparametr.user %>
+        <tr>
+          <td><strong>Svars:</strong></td>
+          <td><%= lietotajaparametr.svars %> kg</td>
+
+        </tr>
+        <tr>
+          <td><strong>Dzimums:</strong></td>
+          <td><%= lietotajaparametr.dzimums %></td>
+
+        </tr>
+        <tr>
+          <td><strong>Augums:</strong></td>
+          <td><%= lietotajaparametr.augums %> cm</td>
+
+        </tr>
+        <tr>
+          <td><strong>Vecums:</strong></td>
+          <td><%= lietotajaparametr.vecums %> gadi</td>
+
+
+        </tr>
+        <tr>
+          <td><strong>Dzīves veids:</strong></td>
+          <td><%= lietotajaparametr.koef %></td>
+
+        </tr>
+        <tr>
+          <td><strong>Mērķis:</strong></td>
+          <td><%= lietotajaparametr.goal %></td>
+
+        </tr>
+      </tbody>
+    </table>
+    <%= link_to 'Rediģēt parametrus', edit_lietotajaparametr_path(lietotajaparametr), class: 'btn btn-primary' %>
+  </div>
+</div>
 
 <table>
   <thead>
     <tr>
-      <th>Svars</th>
-      <th>Augums</th>
-      <th>Vecums</th>
-      <th>Dzimums</th>
-      <th>Koeficients</th>
-      <th>Mērķa svars</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
 
       <th></th>
 
@@ -18,26 +66,21 @@
   </thead>
 
   <tbody>
-    <% @lietotajaparametrs.each do |lietotajaparametr| %>
-      <% if current_user == lietotajaparametr.user %>
+
       <tr>
-        <td><%= lietotajaparametr.svars %></td>
-        <td><%= lietotajaparametr.augums %></td>
-        <td><%= lietotajaparametr.vecums %></td>
-        <td><%= lietotajaparametr.dzimums %></td>
-        <td><%= lietotajaparametr.koef %></td>
-        <td><%= lietotajaparametr.goal %></td>
-        <td><%= link_to 'Edit', edit_lietotajaparametr_path(lietotajaparametr) %></td>
+        <td></td>
+        <td></td>
+        <td></td>
         <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-
+    </div>
+<div class="col">
 <%# shows button if dumb user closed parameter creating page during registration %>
 
-<br/>
+  <br/>
   <% unless Lietotajaparametr.exists?(user_id: current_user.id) %>
     <%=  link_to 'Pievienot parametrus', 'lietotajaparametrs/new', class: "btn btn-secondary"  %>
     <br/>
@@ -45,20 +88,24 @@
 
 <%# --------------------------------------------------------------------------------- %>
 
-<br/>
-<%= link_to 'Nevelāmie produkti', 'nevelprods#index', class: "btn btn-secondary" %>
-<br/>
-<br/>
-<%= link_to 'Velāmie produkti', 'velprods#index', class: "btn btn-secondary" %>
-<br/>
-<br/>
+  <br/>
+  <%= link_to 'Nevelāmie produkti', 'nevelprods#index', class: "btn btn-secondary" %>
+  <br/>
+  <br/>
+  <%= link_to 'Velāmie produkti', 'velprods#index', class: "btn btn-secondary" %>
+  <br/>
+  <br/>
 
 
 
 <%# shows button only if dumb user didnt close 'parameter creating page' during registration %>
 
-<% if Lietotajaparametr.exists?(user_id: current_user.id) %>
-  <%= form_with(url: '/lietotajaparametrs/activatepython', method: 'get') do |f| %>
-    <%= f.submit "Radīt rezultātus" %>
+  <% if Lietotajaparametr.exists?(user_id: current_user.id) %>
+    <%= form_with(url: '/lietotajaparametrs/activatepython', method: 'get') do |f| %>
+      <%= f.submit "Radīt rezultātus", class: "btn btn-primary btn-lg"%>
+    <% end %>
   <% end %>
-<% end %>
+</div>
+</div>
+</div>
+

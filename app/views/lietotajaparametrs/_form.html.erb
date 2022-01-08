@@ -38,13 +38,12 @@
 
   <div class="field">
     <%= form.label I18n.t(:koef) %>
-    <%= form.select :koef, options_for_select([['Neaktīvs', 1.2], ['Mazāk aktīvs', 1.5], ['Vidēji aktīvs', 1.5], ['Vairāk aktīvs', 1.7], ['Ļoti aktīvs', 1.9 ]]), prompt: 'Izvēle', class: "form-select"  %>
+    <%= form.select :koef, options_for_select([['Neaktīvs'], ['Mazāk aktīvs'], ['Vidēji aktīvs'], ['Vairāk aktīvs'], ['Ļoti aktīvs']]), class: "form-select"   %>
   </div>
 
   <div class="field">
     <%= form.label :goal %>
-    <%= form.select :goal, options_for_select([['Tagadēja svara saglabāšana', 0],['Samazināt', 1], ['Muskulatūras palielināšana', 2], ['Svara samazināšana un muskulatatūras palielināšana', 3], ['Massas palielināšana', 4]]), prompt: 'Izvēle', class: "form-select"  %>
-
+    <%= form.select :goal, options_for_select([['Tagadēja svara saglabāšana'],['Samazināt'], ['Muskulatūras palielināšana'], ['Svara samazināšana un muskulatatūras palielināšana'], ['Massas palielināšana']]), class: "form-select"  %>
   </div>
 
   <div class="actions">

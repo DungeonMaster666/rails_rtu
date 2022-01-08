@@ -14,15 +14,13 @@ def main():
     for i in bazesprods_all:
         for j in range(1,15):
             i[j] = float(i[j])
-    cursor.execute('SELECT * FROM velprods')
-
+    cursor.execute(f'SELECT * FROM velprods WHERE user_id={id}')
     velprods_all = cursor.fetchall()
     velprods_all = [list(el)[2:] for el in velprods_all]
     for i in velprods_all:
         for j in range(1,15):
             i[j] = float(i[j])
-
-    cursor.execute('SELECT * FROM nevelprods')
+    cursor.execute(f'SELECT * FROM nevelprods WHERE user_id={id}')
     nevelprods_all = cursor.fetchall()
     nevelprods_all = [list(el)[2] for el in nevelprods_all]
 
@@ -39,7 +37,7 @@ def main():
 
     # svars, augums, vecums, dzimums, sporta koeficents, meeerkis
     lietotaja_dati = lparams
-    #[89, 193, 21, 'v', 1.2, 1]
+    #[89, 193, 21, 'V', 1.2, 1]
     # vmesto -2 napisatj -4, takkak budut dobavleni minimumi i maksimummi produktov
 
 
@@ -115,7 +113,7 @@ def main():
             limits[9]=1000
             limits[10]=12.5
     elif (lietotaja_dati[3]=='S'):
-        limits[3]=(10*lietotaja_dati[0]+6,25*lietotaja_dati[1]-5*lietotaja_dati[2]-161)*lietotaja_dati[4]
+        limits[3]=(10*lietotaja_dati[0]+6.25*lietotaja_dati[1]-5*lietotaja_dati[2]-161)*lietotaja_dati[4]
         if (lietotaja_dati[5]==0):
             limits[0]=(0.3*limits[3])/4
             limits[1]=(0.3*limits[3])/9
