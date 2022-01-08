@@ -5,7 +5,8 @@ import uuid
 
 def main():
     id = sys.argv[1]
-    conn = psycopg2.connect("dbname=rtu_rails user=janis password=eiduks")
+    #conn = psycopg2.connect("dbname=rtu_rails user=janis password=eiduks")
+    conn = psycopg2.connect("dbname=d8qffhfgaa6j7k user=lmccvoachcolkw password=5d996fba5503e575178241032d4034b1518e53ea70012e3e5e6754882fbadcc1 host=ec2-54-195-76-73.eu-west-1.compute.amazonaws.com")
     cursor = conn.cursor()
 
     cursor.execute('SELECT * FROM bazesprods')
