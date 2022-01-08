@@ -12,11 +12,12 @@ class EdienkartesController < ApplicationController
   def show
 
     @edienkarte2 = Edienkarte.find(params[:format])
-     unless Dir.getwd=='/Users/marksgrisajevs/rails_rtu/lib/webCrawlerTest/prodTest/prodTest'
+    unless Dir.getwd=='/Users/marksgrisajevs/rails_rtu/lib/webCrawlerTest/prodTest/prodTest'
       Dir.chdir('lib/webCrawlerTest/prodTest/prodTest')
       system "scrapy crawl barbora -a _product_name='#{@edienkarte2.prodnos}' -a _user_id='#{current_user.id}'"
-     end
-     @edienkarte3 = Edienkarte.find(@edienkarte2.id)
+    end
+    @edienkarte3 = Edienkarte.find(@edienkarte2.id)
+    @link_to_product = @edienkarte3.shopnos
   end
 
   def tested

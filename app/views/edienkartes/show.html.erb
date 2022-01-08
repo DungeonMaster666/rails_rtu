@@ -8,9 +8,14 @@
   <div class="card-body">
     <h5 class="card-title"><%= @edienkarte3.prodnos %></h5>
     <p class="card-text">Produkta daudzums: <%= @edienkarte3.quantity %> g</p>
-    <p>Produkta cena: €<%= @edienkarte3.cena %></p>
-
-    <a ><%= button_to 'Pirkt', @edienkarte3.shopnos, class: "btn btn-primary" %></a>
+    <% if @edienkarte3.cena %>
+      <p>Produkta cena: €<%= @edienkarte3.cena %></p>
+    <% end %>
+    <% if !@link_to_product.blank? %>
+      <a ><%= button_to 'Pirkt', @link_to_product, class: "btn btn-primary" %></a>
+    <% else %>
+      <h6>Šis produkts nav atrasts Barbora katalogā</h6>
+    <% end %>
   </div>
 </div>
 
