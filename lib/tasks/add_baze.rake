@@ -2,10 +2,10 @@ namespace :add_baze do
   desc "add baze prod db"
   task add_baze: :environment do
     Bazesprod.delete_all
-    data = Roo::Spreadsheet.open('lib/excel/PartikasGrozsDati.xlsx')
+    data = Roo::Spreadsheet.open('lib/excel/PartikasGrozsDati_with_prices.xlsx')
     @headers = false
     data.each(prodnos: 'Uzturlīdzeklis', olb: 'Olb.v', tauki: 'Tauki', oglh: 'Ogļh.', kcal: 'kcal', A: 'A', B1: 'B1', B2: 'B2', C: 'C',
-              Ca: 'Ca', P: 'P', Fe: 'Fe') do |hash|
+              Ca: 'Ca', P: 'P', Fe: 'Fe', max: 'g', cena: 'cena_opt') do |hash|
       if !@headers
         @headers = true
         puts 'skip first row'
