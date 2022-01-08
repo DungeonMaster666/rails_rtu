@@ -6,6 +6,8 @@
 </p>
 
 
+<% if user_signed_in? %>
+  <%= link_to 'Edit', edit_bazesprod_path(@bazesprod) %> |
+<% end %>
 
-<%= link_to 'Edit', edit_bazesprod_path(@bazesprod) %> |
 <%= link_to 'Back', bazesprods_path %>
