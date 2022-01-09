@@ -21,7 +21,7 @@ class EdienkartesController < ApplicationController
   end
 
   def tested
-    @edienkarte2 = Edienkarte.find(params[:id])
+
   end
   # GET /edienkartes/new
   def new
@@ -38,7 +38,7 @@ class EdienkartesController < ApplicationController
 
     respond_to do |format|
       if @edienkarte.save
-        format.html { redirect_to @edienkarte, notice: "Edienkarte was successfully created." }
+        format.html { redirect_to edienkartes_url, notice: "Ēdienkarte ir veiksmīgi izveidota." }
         format.json { render :show, status: :created, location: @edienkarte }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -51,7 +51,7 @@ class EdienkartesController < ApplicationController
   def update
     respond_to do |format|
       if @edienkarte.update(edienkarte_params)
-        format.html { redirect_to @edienkarte, notice: "Edienkarte was successfully updated." }
+        format.html { redirect_to edienkartes_url, notice: "Ēdienkarte ir veiksmīgi atjaunināta." }
         format.json { render :show, status: :ok, location: @edienkarte }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -64,7 +64,7 @@ class EdienkartesController < ApplicationController
   def destroy
     @edienkarte.destroy
     respond_to do |format|
-      format.html { redirect_to edienkartes_url, notice: "Edienkarte was successfully destroyed." }
+      format.html { redirect_to edienkartes_url, notice: "Ēdienkarte ir veiksmīgi dzēsta." }
       format.json { head :no_content }
     end
   end

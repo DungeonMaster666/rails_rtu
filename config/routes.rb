@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'velprods/test'
   get 'nevelprods/adding'
   get 'edienkartes/tested'
+  get 'bazesprods/product'
   resources :bazesprods
   resources :velprods
   resources :nevelprods

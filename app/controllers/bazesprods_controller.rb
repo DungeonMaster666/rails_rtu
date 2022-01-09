@@ -1,31 +1,28 @@
 class BazesprodsController < ApplicationController
-  before_action :set_bazesprod, only: %i[ show edit update destroy ]
+  before_action :set_bazesprod, only: %i[ show edit update destroy product]
   before_action :admin_user, only: [:edit, :destroy, :new, :update]
-  # GET /bazesprods or /bazesprods.json
   def index
     @bazesprods = Bazesprod.order("prodnos ASC").page(params[:page])
   end
 
-  # GET /bazesprods/1 or /bazesprods/1.json
-  def show
+
+  def product
+    @last_page = params[:page]
   end
 
-  # GET /bazesprods/new
   def new
     @bazesprod = Bazesprod.new
   end
 
-  # GET /bazesprods/1/edit
   def edit
   end
 
-  # POST /bazesprods or /bazesprods.json
   def create
     @bazesprod = Bazesprod.new(bazesprod_params)
     respond_to do |format|
       if @bazesprod.save
-        format.html { redirect_to @bazesprod, notice: "Bazesprod was successfully created." }
-        format.json { render :show, status: :created, location: @bazesprod }
+        format.html { redirect_to bazesprods_url, notice: "Bāzes produkts ir veiksmīgi saglabāts." }
+        format.json { render :product, status: :created, location: @bazesprod }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @bazesprod.errors, status: :unprocessable_entity }
@@ -37,8 +34,8 @@ class BazesprodsController < ApplicationController
   def update
     respond_to do |format|
       if @bazesprod.update(bazesprod_params)
-        format.html { redirect_to @bazesprod, notice: "Bazesprod was successfully updated." }
-        format.json { render :show, status: :ok, location: @bazesprod }
+        format.html { redirect_to bazesprods_url, notice: "Bāzes produkts ir veiksmīgi atjaunināts." }
+        format.json { render :product, status: :ok, location: @bazesprod }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @bazesprod.errors, status: :unprocessable_entity }
@@ -50,7 +47,7 @@ class BazesprodsController < ApplicationController
   def destroy
     @bazesprod.destroy
     respond_to do |format|
-      format.html { redirect_to bazesprods_url, notice: "Bazesprod was successfully destroyed." }
+      format.html { redirect_to bazesprods_url, notice: "Bāzes produkts ir veiksmīgi dzēsts." }
       format.json { head :no_content }
     end
   end

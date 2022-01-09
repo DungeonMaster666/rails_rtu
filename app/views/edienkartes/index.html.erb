@@ -7,19 +7,19 @@
     <tr>
       <th>Prodnos</th>
       <th>Quantity</th>
+      <th>UserName</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @edienkartes.each do |edienkarte| %>
-      <% if current_user == edienkarte.user_id %>
         <tr>
+          <td><%= edienkarte.user.email %></td>
           <td><%= edienkarte.prodnos %></td>
           <td><%= edienkarte.quantity %></td>
           <td><%= link_to 'Show', edienkarte %></td>
         </tr>
-      <% end %>
     <% end %>
   </tbody>
 </table>

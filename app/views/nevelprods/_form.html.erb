@@ -1,27 +1,67 @@
-<%= form_with(model: nevelprod) do |form| %>
-  <% if nevelprod.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(nevelprod.errors.count, "error") %> prohibited this nevelprod from being saved:</h2>
-
-      <ul>
-        <% nevelprod.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+<div class="row">
+  <div class="col-4">
+      <%= form_with(model: nevelprod) do |form| %>
+        <% if nevelprod.errors.any? %>
+          <br/>
+          <div class="card">
+            <h5 class="card-header"><%= I18n.t('errors.template.header', count: nevelprod.errors.count) %></h5>
+            <div class="card-body">
+              <div id="error_explanation">
+              </div>
+              <p class="card-text">
+              <ul>
+                <% nevelprod.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+              </p>
+            </div>
+          </div>
         <% end %>
-      </ul>
     </div>
-  <% end %>
+  </div>
 
   <div class="field">
     <% form.label :user_id %>
     <%= form.number_field :user_id, id: :nevelprods_user_id, value: current_user.id, type: :hidden  %>
   </div>
+  <div class="row">
+    <div class="col-4">
+      <div class="form-control needs-validation">
+        <div class="field">
+          <%= form.label I18n.t(:prod_nos), class: "form-label" %>
+          <%= form.text_field :prod_nos, class: "form-control", required: true%>
+          <div class="invalid-feedback">
+            Please choose a username.
+          </div>
+        </div>
+        <br/>
+        <div class="row justify-content-between">
 
-  <div class="field">
-    <%= form.label :prod_nos %>
-    <%= form.text_field :prod_nos %>
+          <div class="field">
+            <% form.label :user_id %>
+            <%= form.number_field :user_id, id: :nevelprods_user_id, value: current_user.id, type: :hidden  %>
+          </div>
+          <% if @type=="edit" %>
+            <% submit_name = "Atjaunināt" %>
+          <% else submit_name = "Pievienot"%>
+          <% end %>
+          <div class="row justify-content-between">
+            <div class="col">
+              <%= link_to 'Atpakaļ', nevelprods_path,class: "btn btn-secondary" %>
+            </div>
+            <div class="col-3">
+              <%= form.submit submit_name, class: "btn btn-primary" %>
+              <br/><br/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+
+
+
+
 <% end %>

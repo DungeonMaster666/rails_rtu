@@ -30,11 +30,36 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  views:
+    pagination:
+      first: "&laquo; Pirmā"
+      last: "&nbsp;Pēdējā &raquo;"
+      previous: "&nbsp;&lsaquo; Iepriekšējā&nbsp;"
+      next: "&nbsp;Nākamā &rsaquo;"
+      truncate: "&hellip;"
   hello: "Hello world"
+  prod_nos: Produkta nosaukums
+  prodnos: Produkta nosaukums
+  olb: Olbaltumvielas
+  tauki: Tauki
+  oglh: Ogļhidrāti
+  A: Vitamīns A
+  B: Vitamīns B%{num}
+  C: Vitamīns C
+  Ca: Kalcijs
+  P: Fosfors
+  Fe: Dzelzs
+  min: Obligātais minimums
+  max: Limits
+  kcal: Kaloriju skaits
   koef: Fiziskās aktivitātes līmenis
+  cena: Cena
+  quantity: Daudzums
+
   activerecord:
     attributes:
       email: Emails
+
     errors:
       messages:
         record_invalid: 'Pārbaude neizdevās: %{errors}'
@@ -149,6 +174,10 @@ en:
       year: gads
   errors:
     format: "%{attribute} %{message}"
+    template:
+      header:
+        one: "1 kļūda neļauj saglabāt šo ierakstu:"
+        other: "%{count} kļūdas neļauj saglabāt šo ierakstu:"
     messages:
       accepted: ir jāpiekrīt
       blank: ir jābūt aizpildītam
@@ -179,12 +208,6 @@ en:
         zero: ir nepareizs garums (jābūt %{count} simboliem)
         one: ir nepareizs garums (jābūt %{count} simbolam)
         other: ir nepareizs garums (jābūt %{count} simboliem)
-    template:
-      body: 'Problēmas ir šajos ievades laukos:'
-      header:
-        zero: Dēļ %{count} kļūdām šis %{model} netika saglabāts
-        one: Dēļ %{count} kļūdas šis %{model} netika saglabāts
-        other: Dēļ %{count} kļūdām šis %{model} netika saglabāts
   helpers:
     select:
       prompt: Lūdzu izvēlies

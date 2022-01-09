@@ -1,34 +1,55 @@
 
+<br/>
 
-<h1>Nevelprods</h1>
+<div class="container">
 
-<table>
-  <thead>
-    <tr>
-      <th>Prod nos</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @nevelprods.each do |nevelprod| %>
-      <% if current_user == nevelprod.user %>
-        <tr>
-          <td><%= nevelprod.prod_nos %></td>
-          <td><%= link_to 'Edit', edit_nevelprod_path(nevelprod) %></td>
-          <td><%= link_to 'Destroy', nevelprod, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
+  <div class="row row-cols-3 ">
+    <div class="col-5">
+      <div class="card" style="width: 24rem;">
+        <div class="card-body">
+          <h1 class="card-title">Jūsu nevēlāmo produktu saraksts</h1>
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th><%= I18n.t(:prodnos) %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @nevelprods.each do |nevelprod| %>
+                <% if current_user == nevelprod.user %>
+                  <tr>
+                    <td><%= nevelprod.prod_nos %></td>
+                    <td><%= link_to 'Rediģēt', edit_nevelprod_path(nevelprod), class: "btn btn-primary btn-sm" %></td>
+                    <td><%= link_to 'Noņemt', nevelprod, method: :delete, data: { confirm: 'Vai Jūs esat pārliecināti?' }, class: "btn btn-danger btn-sm" %></td>
+                  </tr>
+                <% end %>
+              <% end %>
 
-<br/><br/>
-<%= form_with(url: '/nevelprods/adding', method: 'get') do |f| %>
-  <%= f.select :tocopy, options_from_collection_for_select(@baze, 'id', 'prodnos'), prompt: 'Select prod to edit', class: "form-select"  %>
-  <%= f.submit "Add product" %>
-<% end %>
+            </tbody>
 
-<br>
+          </table>
+          <%= link_to 'Pievienot savu produktu', new_nevelprod_path, class: "btn btn-primary" %>
 
-<%= link_to 'New Nevelprod', new_nevelprod_path %>
+        </div>
+        <br/>
+        <%= link_to 'Uz galveni', lietotajaparametrs_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <div class="form-control" style="margin-top:45px;">
+        <%= form_with(url: '/nevelprods/adding', method: 'get') do |f| %>
+          <div class="field">
+            <h4><%= f.label "Izvēlēties un pievienot eksistējošo produktu:" %></h4>
+
+            <%= f.select :tocopy, options_from_collection_for_select(@baze, 'id', 'prodnos'), {prompt: "Izvēlēties produktu" }, {class: "form-select" }  %>
+            <br/>
+            <%= f.submit "Pievienot produktu", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>

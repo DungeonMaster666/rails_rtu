@@ -1,33 +1,46 @@
-<% Dir.chdir(Rails.root) %>
-<% `python3 lib/assets/Dieta2.py #{current_user.id}` %>
+<div class="row justify-content-around">
+  <div class="col-4">
+    <div class="card" style="width: 24rem;">
+      <div class="card-body">
+        <h1 class="card-title">Jūsu ēdienkarte</h1>
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+
+              <th><%= I18n.t(:prodnos) %></th>
+              <th><%= I18n.t(:quantity) %></th>
+            </tr>
+
+          </thead>
+          <tbody>
+            <% @edienkartes.each do |edienkarte| %>
+              <% if current_user == edienkarte.user %>
+                <% cache edienkarte do %>
+                  <tr>
+                    <td><%= edienkarte.prodnos %></td>
+                    <td><%= edienkarte.quantity %></td>
+                    <td><%= link_to('Plašāk', edienkartes_tested_path(edienkarte.id), class: "btn btn-dark btn-sm")%></td>
+                  </tr>
+                <% end %>
+              <% end %>
+            <% end %>
+
+          </tbody>
+
+        </table>
+        <h5> Vidējā ēdienkartes cena: <%= @average_price %> €</h5>
+
+      </div>
+      <%= link_to 'Uz galveni', lietotajaparametrs_path, class: "btn btn-secondary" %>
+
+    </div>
+
+  </div>
+
+</div>
 
 
-<h1>Edienkartes</h1>
 
-<table>
-  <thead>
-  <tr>
-    <th>Prodnos</th>
-    <th>Quantity</th>
-    <th colspan="1"></th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @edienkartes.each do |edienkarte| %>
-    <% if current_user == edienkarte.user %>
-      <% cache edienkarte do %>
-        <tr>
-          <td><%= edienkarte.prodnos %></td>
-          <td><%= edienkarte.quantity %></td>
-          <td><%= link_to('Radīt', edienkartes_tested_path(edienkarte.id))%></td>
-        </tr>
-      <% end %>
-    <% end %>
-  <% end %>
-  </tbody>
-</table>
 <br/>
 <br/>
-<%= link_to 'Uz galveni', lietotajaparametrs_path, class: "btn btn-secondary" %>
 <br>
-

@@ -1,101 +1,167 @@
-<%= form_with(model: velprod) do |form| %>
-  <% if velprod.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(velprod.errors.count, "error") %> prohibited this velprod from being saved:</h2>
+<div class="row">
+  <div class="col-4">
+    <div class="form-control">
+      <%= form_with(model: velprod) do |form| %>
+        <% if velprod.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(velprod.errors.count, "error") %> prohibited this velprod from being saved:</h2>
 
-      <ul>
-        <% velprod.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+            <ul>
+              <% velprod.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+
+        <h1> <%= "#{velprod.prod_nos}" %> </h1>
+        <div class="row">
+          <div class="col">
+            <% unless @type=='edit' %>
+              <div class="field">
+                <%= form.label I18n.t(:prod_nos), class: "form-label" %>
+                <%= form.text_field :prod_nos, class: "form-control", required: true %>
+              </div>
+            <% end %>
+
+            <div class="field">
+              <%= form.label I18n.t(:olb), class: "form-label" %>
+              <div class="input-group" >
+                <%= form.number_field :olb, step: :any, class: "form-control", required: true %>
+                <span class="input-group-text">g</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <%= form.label I18n.t(:tauki), class: "form-label" %>
+              <div class="input-group" >
+                <%= form.number_field :tauki, step: :any, class: "form-control", required: true %>
+                <span class="input-group-text">g</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <%= form.label I18n.t(:oglh), class: "form-label" %>
+              <div class="input-group" >
+                <%= form.number_field :oglh, step: :any, class: "form-control", required: true %>
+                <span class="input-group-text">g</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <%= form.label I18n.t(:kcal), class: "form-label" %>
+              <div class="input-group" >
+                <%= form.number_field :kcal, step: :any, class: "form-control", required: true %>
+                <span class="input-group-text">kcal</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <%= form.label I18n.t(:A), class: "form-label" %>
+              <div class="input-group" >
+                <%= form.number_field :A, step: :any, class: "form-control", required: true %>
+                <span class="input-group-text">mg</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <%= form.label I18n.t(:B, num: 1), class: "form-label" %>
+              <div class="input-group" >
+                <%= form.number_field :B1, step: :any, class: "form-control", required: true %>
+                <span class="input-group-text">mg</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <%= form.label I18n.t(:B, num: 2), class: "form-label" %>
+              <div class="input-group" >
+                <%= form.number_field :B2, step: :any, class: "form-control", required: true %>
+                <span class="input-group-text">mg</span>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="field">
+              <%= form.label I18n.t(:C), class: "form-label" %>
+              <div class="input-group" >
+                <%= form.number_field :C, step: :any, class: "form-control", required: true %>
+                <span class="input-group-text">mg</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <%= form.label I18n.t(:Ca), class: "form-label" %>
+              <div class="input-group" >
+                <%= form.number_field :Ca, step: :any, class: "form-control", required: true %>
+                <span class="input-group-text">mg</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <%= form.label I18n.t(:P), class: "form-label" %>
+              <div class="input-group" >
+                <%= form.number_field :P, step: :any, class: "form-control", required: true %>
+                <span class="input-group-text">mg</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <%= form.label I18n.t(:Fe), class: "form-label" %>
+              <div class="input-group" >
+                <%= form.number_field :Fe, step: :any, class: "form-control", required: true %>
+                <span class="input-group-text">mg</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <%= form.label :cena, class: "form-label" %>
+              <div class="input-group" >
+                <%= form.number_field :cena, step: :any, class: "form-control", required: true %>
+                <span class="input-group-text">€</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <%= form.label I18n.t(:min), class: "form-label" %>
+              <div class="input-group" >
+                <%= form.number_field :min, step: :any, class: "form-control", required: true %>
+                <span class="input-group-text">g</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <%= form.label I18n.t(:max), class: "form-label" %>
+              <div class="input-group" >
+                <%= form.number_field :max, step: :any, class: "form-control", required: true %>
+                <span class="input-group-text">g</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <% form.label :user_id %>
+          <%= form.number_field :user_id, id: :velprods_user_id, value: current_user.id, type: :hidden  %>
+        </div>
+        <br/>
+        <% if @type=="edit" %>
+          <% submit_name = "Atjaunināt" %>
+        <% else submit_name = "Pievienot"%>
+        <% end %>
+
+        <div class="row justify-content-between">
+          <div class="col">
+            <%= link_to 'Atpakaļ', velprods_path,class: "btn btn-secondary" %>
+          </div>
+          <div class="col-4">
+            <%= form.submit submit_name, class: "btn btn-primary" %>
+            <br/><br/>
+          </div>
+        </div>
+
+      </div>
     </div>
-  <% end %>
-
-<h1> <%= "#{velprod.prod_nos}" %> </h1>
-
-  <div class="field">
-    <% form.label :user_id %>
-    <%= form.number_field :user_id, id: :velprods_user_id, value: current_user.id, type: :hidden  %>
   </div>
 
-<% unless @type=='edit' %>
-  <div class="field">
-    <%= form.label :prod_nos %>
-    <%= form.text_field :prod_nos %>
-  </div>
-<% end %>
 
-  <div class="field">
-    <%= form.label :olb %>
-    <%= form.text_field :olb %>
-  </div>
-
-  <div class="field">
-    <%= form.label :tauki %>
-    <%= form.text_field :tauki %>
-  </div>
-
-  <div class="field">
-    <%= form.label :oglh %>
-    <%= form.text_field :oglh %>
-  </div>
-
-  <div class="field">
-    <%= form.label :kcal %>
-    <%= form.text_field :kcal %>
-  </div>
-
-  <div class="field">
-    <%= form.label :A %>
-    <%= form.text_field :A %>
-  </div>
-
-  <div class="field">
-    <%= form.label :B1 %>
-    <%= form.text_field :B1 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :B2 %>
-    <%= form.text_field :B2 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :C %>
-    <%= form.text_field :C %>
-  </div>
-
-  <div class="field">
-    <%= form.label :Ca %>
-    <%= form.text_field :Ca %>
-  </div>
-
-  <div class="field">
-    <%= form.label :P %>
-    <%= form.text_field :P %>
-  </div>
-
-  <div class="field">
-    <%= form.label :Fe %>
-    <%= form.text_field :Fe %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cena %>
-    <%= form.text_field :cena %>
-  </div>
-
-  <div class="field">
-    <%= form.label :min %>
-    <%= form.text_field :min  %>
-  </div>
-
-  <div class="field">
-    <%= form.label :max %>
-      <%= form.text_field :max %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

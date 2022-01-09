@@ -29,7 +29,7 @@ class VelprodsController < ApplicationController
 
     respond_to do |format|
       if @velprod.save
-        format.html { redirect_to @velprod, notice: "Velprod was successfully created." }
+        format.html { redirect_to velprods_url, notice: "Produkts ir veiksmīgi pievienots." }
         format.json { render :show, status: :created, location: @velprod }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +42,7 @@ class VelprodsController < ApplicationController
   def update
     respond_to do |format|
       if @velprod.update(velprod_params)
-        format.html { redirect_to @velprod, notice: "Velprod was successfully updated." }
+        format.html { redirect_to velprods_url, notice: "Produkts ir veiksmīgi atjaunināts." }
         format.json { render :show, status: :ok, location: @velprod }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,7 +54,7 @@ class VelprodsController < ApplicationController
   def test
     if params[:tocopy] != "" and params[:tocopy].to_i != 0  #defense from sql injection
       if !Bazesprod.exists?(params[:tocopy])
-        redirect_to velprods_path, notice: "Jāievada eksistējošo produktu"
+        redirect_to velprods_path, notice: "Jāievada eksistējošais produkts"
       else
         if Velprod.exists?(prod_nos: Bazesprod.where(id: params[:tocopy]).first.prodnos, user_id: current_user.id)
           redirect_to velprods_path, notice: "Izvēlētais produkts jau ir pievienots"
@@ -65,7 +65,7 @@ class VelprodsController < ApplicationController
         end
       end
     else
-      redirect_to velprods_path, notice: "Jāizvēlās produktu"
+      redirect_to velprods_path, notice: "Jāizvēlas produkts"
     end
   end
 
@@ -73,7 +73,7 @@ class VelprodsController < ApplicationController
   def destroy
     @velprod.destroy
     respond_to do |format|
-      format.html { redirect_to velprods_url, notice: "Velprod was successfully destroyed." }
+      format.html { redirect_to velprods_url, notice: "Produkts ir veiksmīgi noņemts." }
       format.json { head :no_content }
     end
   end

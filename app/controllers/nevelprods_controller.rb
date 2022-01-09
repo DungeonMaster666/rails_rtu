@@ -15,10 +15,13 @@ class NevelprodsController < ApplicationController
   # GET /nevelprods/new
   def new
     @nevelprod = current_user.nevelprods.build
+    @type = "new"
   end
 
   # GET /nevelprods/1/edit
   def edit
+    @submit_name = "Atjaunināt"
+    @type = "edit"
   end
 
   # POST /nevelprods or /nevelprods.json
@@ -27,7 +30,7 @@ class NevelprodsController < ApplicationController
 
     respond_to do |format|
       if @nevelprod.save
-        format.html { redirect_to @nevelprod, notice: "Nevelprod was successfully created." }
+        format.html { redirect_to nevelprods_url, notice: "Nevēlamais produkts ir veiksmīgi pievienots!" }
         format.json { render :show, status: :created, location: @nevelprod }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +43,7 @@ class NevelprodsController < ApplicationController
   def update
     respond_to do |format|
       if @nevelprod.update(nevelprod_params)
-        format.html { redirect_to @nevelprod, notice: "Nevelprod was successfully updated." }
+        format.html { redirect_to nevelprods_url, notice: "Nevēlamais produkts ir veiksmīgi atjaunināts!" }
         format.json { render :show, status: :ok, location: @nevelprod }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +56,7 @@ class NevelprodsController < ApplicationController
   def destroy
     @nevelprod.destroy
     respond_to do |format|
-      format.html { redirect_to nevelprods_url, notice: "Nevelprod was successfully destroyed." }
+      format.html { redirect_to nevelprods_url, notice: "Nevēlamais produkts ir veiksmīgi noņemts!" }
       format.json { head :no_content }
     end
   end
@@ -61,18 +64,18 @@ class NevelprodsController < ApplicationController
   def adding
     if params[:tocopy] != "" and params[:tocopy].to_i != 0  #defense from sql injection
       if !Bazesprod.exists?(params[:tocopy])
-        redirect_to nevelprods_path, notice: "Jāievada eksistējošo produktu"
+        redirect_to nevelprods_path, notice: "Jāievada eksistējošais produkts"
       else
-        if Nevelprod.exists?(prod_nos: Bazesprod.where(id: params[:tocopy]).first.prodnos)
+        if Nevelprod.exists?(prod_nos: Bazesprod.where(id: params[:tocopy]).first.prodnos, user_id: current_user.id)
           redirect_to nevelprods_path, notice: "Izvēlētais produkts jau ir pievienots"
         else
           @selectedprod = Bazesprod.where(id: params[:tocopy]).first
-          Nevelprod.create({:user_id => current_user.id, :prod_nos => @selectedprod.prodnos})
+          Nevelprod.create({ :user_id => current_user.id, :prod_nos => @selectedprod.prodnos } )
           redirect_to nevelprods_path
         end
       end
     else
-      redirect_to nevelprods_path, notice: "Jāizvēlās produktu"
+      redirect_to nevelprods_path, notice: "Jāizvēlas produkts"
     end
   end
 

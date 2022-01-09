@@ -1,0 +1,90 @@
+
+<div class="row justify-content-around">
+  <div class="col-4">
+    <div class="card" style="width: 24rem;">
+      <div class="card-body">
+        <h1 class="card-title"><%= @bazesprod.prodnos %></h1>
+        <table class="table table-striped table-hover">
+          <thead></thead>
+          <tbody>
+
+          <tr>
+            <td><strong><%= I18n.t(:olb) %></strong></td>
+            <td><%= @bazesprod.olb %> g</td>
+          </tr>
+
+          <tr>
+            <td><strong><%= I18n.t(:tauki) %></strong></td>
+            <td><%= @bazesprod.tauki %> g</td>
+          </tr>
+
+          <tr>
+            <td><strong><%= I18n.t(:oglh) %></strong></td>
+            <td><%= @bazesprod.oglh %> g</td>
+          </tr>
+
+          <tr>
+            <td><strong><%= I18n.t(:kcal) %></strong></td>
+            <td><%= @bazesprod.kcal %> kcal</td>
+          </tr>
+
+          <tr>
+            <td><strong><%= I18n.t(:A) %></strong></td>
+            <td><%= @bazesprod.A %> mg</td>
+          </tr>
+
+          <tr>
+            <td><strong><%= I18n.t(:B, num: 1) %></strong></td>
+            <td><%= @bazesprod.B1 %> mg</td>
+          </tr>
+
+          <tr>
+            <td><strong><%= I18n.t(:B, num:2) %></strong></td>
+            <td><%= @bazesprod.B2 %> mg</td>
+          </tr>
+
+          <tr>
+            <td><strong><%= I18n.t(:C) %></strong></td>
+            <td><%= @bazesprod.C %> mg</td>
+          </tr>
+
+          <tr>
+            <td><strong><%= I18n.t(:Ca) %></strong></td>
+            <td><%= @bazesprod.Ca %> mg</td>
+          </tr>
+
+          <tr>
+            <td><strong><%= I18n.t(:P) %></strong></td>
+            <td><%= @bazesprod.P %> mg</td>
+          </tr>
+
+          <tr>
+            <td><strong><%= I18n.t(:Fe) %></strong></td>
+            <td><%= @bazesprod.Fe%> mg</td>
+          </tr>
+
+          <tr>
+            <td><strong><%= I18n.t(:cena) %></strong></td>
+            <td><%= @bazesprod.cena %> €</td>
+          </tr>
+
+          <tr>
+            <td><strong><%= I18n.t(:min) %></strong></td>
+            <td><%= @bazesprod.min %> g</td>
+          </tr>
+
+          <tr>
+            <td><strong><%= I18n.t(:max) %></strong></td>
+            <td><%= @bazesprod.max%> g</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <%= link_to 'Atpakaļ', bazesprods_path(page: @last_page), class: "btn btn-secondary" %>
+    </div>
+  </div>
+</div>
+
+
+
+

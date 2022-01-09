@@ -12,14 +12,12 @@
       <p>Produkta cena: €<%= @edienkarte3.cena %></p>
     <% end %>
     <% if !@link_to_product.blank? %>
-      <a ><%= button_to 'Pirkt', @link_to_product, class: "btn btn-primary" %></a>
+      <a ><%= link_to 'Pirkt', @link_to_product, :target => '_blank', class: "btn btn-primary" %></a>
     <% else %>
       <h6>Šis produkts nav atrasts Barbora katalogā</h6>
     <% end %>
   </div>
 </div>
-
-
 <br/>
 <br/>
 <%= link_to 'Atpakaļ', lietotajaparametrs_activatepython_path, class: "btn btn-primary"  %>

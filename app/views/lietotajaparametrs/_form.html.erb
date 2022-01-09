@@ -1,7 +1,7 @@
 <%= form_with(model: lietotajaparametr) do |form| %>
   <% if lietotajaparametr.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(lietotajaparametr.errors.count, "error") %> prohibited this lietotajaparametr from being saved:</h2>
+      <h2><%= I18n.t('errors.template.header', count: lietotajaparametr.errors.count) %></h2>
 
       <ul>
         <% lietotajaparametr.errors.each do |error| %>
@@ -10,43 +10,68 @@
       </ul>
     </div>
   <% end %>
+  <div class="row">
+    <div class="col-4">
+      <div class="form-control">
+        <div class="field">
+          <%= form.label :svars, class: "form-label" %>
+          <div class="input-group" >
+            <%= form.number_field :svars, step: :any, class: "form-control", required: true %>
+            <span class="input-group-text">kg</span>
+          </div>
+        </div>
 
-  <div class="field">
-    <%= form.label :svars %>
-    <%= form.text_field :svars %>
+        <div class="field">
+          <%= form.label :augums, class: "form-label" %>
+          <div class="input-group" >
+          <%= form.number_field :augums, class: "form-control", required: true %>
+            <span class="input-group-text">cm</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :vecums, class: "form-label" %>
+          <div class="input-group" >
+            <%= form.number_field :vecums, class: "form-control", required: true %>
+            <span class="input-group-text">gadi</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :dzimums, class: "form-label" %>
+          <%= form.select :dzimums, options_for_select([['Sieviete'], ['Vīrietis']]), { } ,class: "form-select"  %>
+        </div>
+
+        <div class="field">
+          <% form.label :user_id %>
+          <%= form.number_field :user_id, id: :lietotajaparametrs_user_id, value: current_user.id, type: :hidden  %>
+        </div>
+
+        <div class="field">
+          <%= form.label I18n.t(:koef), class: "form-label" %>
+          <%= form.select :koef, options_for_select([['Neaktīvs'], ['Mazāk aktīvs'], ['Vidēji aktīvs'], ['Vairāk aktīvs'], ['Ļoti aktīvs']]), {},class: "form-select"  %>
+        </div>
+
+        <div class="field">
+          <%= form.label "Mērķis", class: "form-label" %>
+          <%= form.select :goal, options_for_select([['Tagadēja svara saglabāšana'],['Samazināt svaru'], ['Muskulatūras palielināšana'], ['Svara samazināšana un muskulatatūras palielināšana'], ['Masas palielināšana']]), {}, class: "form-select" %>
+        </div>
+        <br/>
+        <% if @type=="edit" %>
+          <% submit_name = "Atjaunināt" %>
+        <% else submit_name = "Pievienot"%>
+        <% end %>
+        <div class="row justify-content-between">
+          <div class="col">
+            <%= link_to 'Atpakaļ', lietotajaparametrs_path,class: "btn btn-secondary" %>
+          </div>
+          <div class="col-4">
+              <%= form.submit submit_name, class: "btn btn-primary" %>
+            <br/><br/>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :augums %>
-    <%= form.number_field :augums %>
-  </div>
-
-  <div class="field">
-    <%= form.label :vecums %>
-    <%= form.number_field :vecums, class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :dzimums %>
-    <%= form.select :dzimums, options_for_select([['Sieviešu', 'S'], ['Vīriešu', 'V']]), prompt: 'Izvēle', class: "form-select"  %>
-  </div>
-
-  <div class="field">
-    <% form.label :user_id %>
-    <%= form.number_field :user_id, id: :lietotajaparametrs_user_id, value: current_user.id, type: :hidden  %>
-  </div>
-
-  <div class="field">
-    <%= form.label I18n.t(:koef) %>
-    <%= form.select :koef, options_for_select([['Neaktīvs'], ['Mazāk aktīvs'], ['Vidēji aktīvs'], ['Vairāk aktīvs'], ['Ļoti aktīvs']]), class: "form-select"   %>
-  </div>
-
-  <div class="field">
-    <%= form.label :goal %>
-    <%= form.select :goal, options_for_select([['Tagadēja svara saglabāšana'],['Samazināt'], ['Muskulatūras palielināšana'], ['Svara samazināšana un muskulatatūras palielināšana'], ['Massas palielināšana']]), class: "form-select"  %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
