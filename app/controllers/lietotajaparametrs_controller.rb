@@ -32,6 +32,7 @@ class LietotajaparametrsController < ApplicationController
   def create
     @lietotajaparametr = current_user.lietotajaparametrs.build(lietotajaparametr_params)
 
+    
     respond_to do |format|
       if @lietotajaparametr.save
         format.html { redirect_to lietotajaparametrs_url, notice: "Jūsu parametri ir veiksmīgi saglabāti." }
