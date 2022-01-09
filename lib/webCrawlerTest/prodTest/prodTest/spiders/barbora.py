@@ -29,8 +29,8 @@ class BarboraSpider(scrapy.Spider):
 # C:\Users\mkorcevskis\Desktop\RTU\DOP719\webCrawlerTest\prodTest> scrapy crawl barbora -a _product_name="āboli"
 
     def parse(self, response):
-        #conn = psycopg2.connect("dbname=rtu_rails user=janis password=eiduks")
-        conn = psycopg2.connect("dbname=d8qffhfgaa6j7k user=lmccvoachcolkw password=5d996fba5503e575178241032d4034b1518e53ea70012e3e5e6754882fbadcc1 host=ec2-54-195-76-73.eu-west-1.compute.amazonaws.com")
+        conn = psycopg2.connect("dbname=rtu_rails user=janis password=eiduks")
+        #conn = psycopg2.connect("dbname=d8qffhfgaa6j7k user=lmccvoachcolkw password=5d996fba5503e575178241032d4034b1518e53ea70012e3e5e6754882fbadcc1 host=ec2-54-195-76-73.eu-west-1.compute.amazonaws.com")
         cursor = conn.cursor()
         for i, iter_product in enumerate(response.css('div.b-product-wrap-img')):
             i = i + 1

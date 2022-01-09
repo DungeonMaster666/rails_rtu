@@ -48,35 +48,45 @@
       </div>
     </div>
     <div class="col-4">
-      <%# shows button if dumb user closed parameter creating page during registration %>
+      <div class="card" style="width: 20rem;">
+        <div class="card-body">
+          <h1 class="card-title">Menu</h1>
+          <table class="table">
+            <thead></thead>
+            <tbody><td> </td></tbody>
+          </table>
+        </div>
 
-      <br/>
-      <% unless Lietotajaparametr.exists?(user_id: current_user.id) %>
-        <%=  link_to 'Pievienot parametrus', 'lietotajaparametrs/new', class: "btn btn-secondary"  %>
-        <br/>
-      <%  end %>
+        <%# shows button if dumb user closed parameter creating page during registration %>
 
-
-      <%# --------------------------------------------------------------------------------- %>
-
-      <br/>
-      <%= link_to 'Nevelāmie produkti', 'nevelprods#index', class: "btn btn-secondary" %>
-      <br/>
-      <br/>
-      <%= link_to 'Pievienot vai rediģēt produktu', 'velprods#index', class: "btn btn-secondary" %>
-      <br/>
-      <br/>
+          <br/>
+          <% unless Lietotajaparametr.exists?(user_id: current_user.id) %>
+            <%=  link_to 'Pievienot parametrus', 'lietotajaparametrs/new', class: "btn btn-secondary"  %>
+            <br/>
+          <%  end %>
 
 
+          <%# --------------------------------------------------------------------------------- %>
 
-      <%# shows button only if dumb user didnt close 'parameter creating page' during registration %>
+          <br/>
+          <%= link_to 'Nevelāmie produkti', 'nevelprods#index', class: "btn btn-secondary" %>
+          <br/>
+          <br/>
+          <%= link_to 'Pievienot vai rediģēt produktu', 'velprods#index', class: "btn btn-secondary" %>
+          <br/>
+          <br/>
 
-      <% if Lietotajaparametr.exists?(user_id: current_user.id) %>
-        <%= form_with(url: '/lietotajaparametrs/activatepython', method: 'get') do |f| %>
-          <%= f.submit "Izveidot ēdienkarti", class: "btn btn-primary btn-lg"%>
-        <% end %>
-      <% end %>
-    </div>
+
+
+          <%# shows button only if dumb user didnt close 'parameter creating page' during registration %>
+
+          <% if Lietotajaparametr.exists?(user_id: current_user.id) %>
+            <%= link_to 'Izveidot ēdienkarti', lietotajaparametrs_activatepython_path, class: "btn btn-primary" %>
+
+          <% end %>
+      </div>
+        </div>
+
 
   </div>
 </div>

@@ -12,13 +12,11 @@
 
 
 
-<div class="container-fluid bg-light">
-    <div class="row">
-      <div class="col">
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+<div class="container container-center bg-light">
+    <div class="row align-self-center">
+<% if devise_mapping.registerable? && controller_name != 'registrations' %>
   <%= link_to "Registrēties", new_registration_path(resource_name), class: 'btn btn-secondary' %><br />
 <% end %>
-    </div>
   </div>
 </div>
 

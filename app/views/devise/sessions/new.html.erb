@@ -1,46 +1,42 @@
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-  <div class="card">
-    <div class="card-header">
-
-
-      <h4>Autentifikācija</h4>
-
-
-    </div>
-    <div class="card-body">
-      <div class="field form-group" >
-        <% f.label :email %><br />
-        <%= f.email_field :email, class: "form-control", placeholder: "E-mail", autofocus: true, autocomplete: "email" %>
+<div class="row justify-content-center">
+  <div class="col-4">
+    <div class="card">
+      <div class="card-header">
+        <h4>Autentifikācija</h4>
       </div>
-
-      <div class="field form-group">
-        <% f.label :password %><br />
-        <%= f.password_field :password, class: "form-control", placeholder: "Parole", autocomplete: "current-password" %>
-      </div>
-      <br/>
-
-      <br/>
-
-      <div class="container bg-light">
-        <div class="row">
-          <div class="col">
-      <div class="actions">
-        <%= f.submit "Pieslēgties", class:'btn btn-secondary' %>
-      </div>
+      <div class="card-body">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field form-group" >
+            <% f.label :email %><br />
+            <%= f.email_field :email, class: "form-control", placeholder: "E-mail", autofocus: true, autocomplete: "email" %>
           </div>
-        </div>
+
+          <div class="field form-group">
+            <% f.label :password %><br />
+            <%= f.password_field :password, class: "form-control", placeholder: "Parole", autocomplete: "current-password" %>
+          </div>
+            <br/>
+
+            <br/>
+          <div class="container container-center bg-light">
+            <div class="row">
+              <div class="col align-self-center">
+                <div class="actions">
+                  <%= f.submit "Pieslēgties", class:'btn btn-secondary' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <br/>
+        <%= render "devise/shared/links" %>
       </div>
-
-<% end %>
-<br/>
-
-<%= render "devise/shared/links" %>
-
     </div>
   </div>
+</div>
 
 
 
 
+
+        <% end %>

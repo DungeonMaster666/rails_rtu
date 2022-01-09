@@ -1,3 +1,15 @@
 // Place all the styles related to the edienkartes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.container-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.btn{
+  &--same_size{
+
+  }
+}
