@@ -19,7 +19,7 @@
 
           <div class="field form-group">
             <% f.label :password %><br />
-            <%= f.password_field :password, class: "form-control", placeholder: "Jauna parole (atstāj tukšu, ja negribi neko mainīt)", autocomplete: "new-password" %>
+            <%= f.password_field :password, class: "form-control", placeholder: "Jauna parole (atstājiet tukšu, ja nevēlaties mainīt)", autocomplete: "new-password" %>
             <% if @minimum_password_length %>
 
             <% end %>
@@ -34,14 +34,14 @@
           <div class="field form-group">
             <% f.label :current_password %>
             <br/>
-            <%= f.password_field :current_password, class: "form-control", placeholder: "Tagadēja parole", autocomplete: "current-password" %>
+            <%= f.password_field :current_password, class: "form-control", placeholder: "Pašreizējā parole", autocomplete: "current-password" %>
           </div>
           <br />
           <div class="container bg-light">
             <div class="row justify-content-center">
               <div class="col-2">
                 <div class="actions">
-                  <%= f.submit "Mainīt",class:'btn-lg btn-secondary' %>
+                  <%= f.submit "Rediģēt",class:'btn-lg btn-secondary' %>
                 </div>
               </div>
             </div>

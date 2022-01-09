@@ -15,21 +15,13 @@
               <%= User.find_by_id(current_user).email %>
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><%= link_to 'Mainīt Profilu', edit_user_registration_path, class:"dropdown-item" %></li>
+              <li><%= link_to 'Rediģēt profilu', edit_user_registration_path, class:"dropdown-item" %></li>
               <li><hr class="dropdown-divider"></li>
               <li><%= link_to 'Iziet', destroy_user_session_path, method: :delete, class:"dropdown-item" %></li>
             </ul>
           </li>
         <% else %>
-          <form class="d-flex">
-            <li class="nav-item">
-              <%= link_to 'Reģistrēties', new_user_registration_path, class:"nav-link" %>
-            </li>
 
-            <li class="nav-item">
-              <%= link_to 'Pieslēgties', new_user_session_path, class:"nav-link" %>
-            </li>
-          </form>
         <% end %>
       </ul>
     </div>

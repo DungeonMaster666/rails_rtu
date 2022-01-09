@@ -52,7 +52,7 @@ en:
   min: Obligātais minimums
   max: Limits
   kcal: Kaloriju skaits
-  koef: Fiziskās aktivitātes līmenis
+  koef: Dzīvesveids
   cena: Cena
   quantity: Daudzums
 
@@ -210,7 +210,7 @@ en:
         other: ir nepareizs garums (jābūt %{count} simboliem)
   helpers:
     select:
-      prompt: Lūdzu izvēlies
+      prompt: Lūdzu izvēlieties
     submit:
       create: Izveidot %{model}
       submit: Saglabāt %{model}

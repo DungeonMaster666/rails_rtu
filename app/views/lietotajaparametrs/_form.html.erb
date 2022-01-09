@@ -39,7 +39,7 @@
 
         <div class="field">
           <%= form.label :dzimums, class: "form-label" %>
-          <%= form.select :dzimums, options_for_select([['Sieviete'], ['Vīrietis']]), { } ,class: "form-select"  %>
+          <%= form.select :dzimums, options_for_select([['Sieviešu'], ['Vīriešu']]), { } ,class: "form-select"  %>
         </div>
 
         <div class="field">
@@ -49,7 +49,7 @@
 
         <div class="field">
           <%= form.label I18n.t(:koef), class: "form-label" %>
-          <%= form.select :koef, options_for_select([['Neaktīvs'], ['Mazāk aktīvs'], ['Vidēji aktīvs'], ['Vairāk aktīvs'], ['Ļoti aktīvs']]), {},class: "form-select"  %>
+          <%= form.select :koef, options_for_select([['Neaktīvs (sēdošs dzīvesveids, fiziskas aktivitātes ar mazu intensitāti vai vispār nav)'], ['Mazāk aktīvs (vieglas fiziskas aktivitātes 1-3 reizes nedēļā)'], ['Vidēji aktīvs (vidēji sarežģīts fizisks darbs vai fiziskas aktivitātes ar vidēju intensitāti 3-5 reizes nedēļā)'], ['Vairāk aktīvs (fizisks darbs un fiziskas nodarbības, vai tikai intensīvas nodarbības 6-7 reizes nedēļā)'], ['Ļoti aktīvs (fizisks darbs un ļoti intensīvas sporta nodarbības)']]), {},class: "form-select"  %>
         </div>
 
         <div class="field">

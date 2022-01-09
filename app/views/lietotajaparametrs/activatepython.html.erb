@@ -18,8 +18,8 @@
                 <% cache edienkarte do %>
                   <tr>
                     <td><%= edienkarte.prodnos %></td>
-                    <td><%= edienkarte.quantity %></td>
-                    <td><%= link_to('Plašāk', edienkartes_tested_path(edienkarte.id), class: "btn btn-dark btn-sm")%></td>
+                    <td><%= edienkarte.quantity %> g</td>
+                    <td><%= link_to('Apskatīt', edienkartes_tested_path(edienkarte.id), class: "btn btn-dark btn-sm")%></td>
                   </tr>
                 <% end %>
               <% end %>

@@ -6,11 +6,11 @@ class Lietotajaparametr < ApplicationRecord
   validates :vecums, presence: true, format: { with: /\A([1-9]|[1-9]\d|[1-9]\d\d)\Z/, message: '- Ievadiet tikai vienu veselo skaitli' }
 
   enum koef: {
-    "Neaktīvs" => 1.2,
-    "Mazāk aktīvs" => 1.5,
-    "Vidēji aktīvs" => 1.5,
-    "Vairāk aktīvs" => 1.7,
-    "Ļoti aktīvs"=> 1.9
+    "Neaktīvs (sēdošs dzīvesveids, fiziskas aktivitātes ar mazu intensitāti vai vispār nav)" => 1.2,
+    "Mazāk aktīvs (vieglas fiziskas aktivitātes 1-3 reizes nedēļā)" => 1.3,
+    "Vidēji aktīvs (vidēji sarežģīts fizisks darbs vai fiziskas aktivitātes ar vidēju intensitāti 3-5 reizes nedēļā)" => 1.5,
+    "Vairāk aktīvs (fizisks darbs un fiziskas nodarbības, vai tikai intensīvas nodarbības 6-7 reizes nedēļā)" => 1.7,
+    "Ļoti aktīvs (fizisks darbs un ļoti intensīvas sporta nodarbības)"=> 1.9
   }
 
   enum goal: {
@@ -22,8 +22,8 @@ class Lietotajaparametr < ApplicationRecord
   }
 
   enum dzimums: {
-    'Sieviete' => 'S',
-    'Vīrietis' => 'V'
+    'Sieviešu' => 'S',
+    'Vīriešu' => 'V'
   }
 
 end

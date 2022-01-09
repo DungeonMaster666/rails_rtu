@@ -6,9 +6,11 @@
       </div>
       <div class="card-body">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+
           <div class="field form-group" >
             <% f.label :email %><br />
-            <%= f.email_field :email, class: "form-control", placeholder: "E-mail", autofocus: true, autocomplete: "email" %>
+            <%= f.email_field :email, class: "form-control", placeholder: "E-pasta adrese", autofocus: true, autocomplete: "email" %>
           </div>
 
           <div class="field form-group">
@@ -16,13 +18,12 @@
             <%= f.password_field :password, class: "form-control", placeholder: "Parole", autocomplete: "current-password" %>
           </div>
             <br/>
-
             <br/>
           <div class="container container-center bg-light">
             <div class="row">
               <div class="col align-self-center">
                 <div class="actions">
-                  <%= f.submit "Pieslēgties", class:'btn btn-secondary' %>
+                  <%= f.submit "Pieslēgties", class:'btn btn-primary' %>
                 </div>
               </div>
             </div>
