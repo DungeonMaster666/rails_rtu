@@ -14,7 +14,7 @@ class Lietotajaparametr < ApplicationRecord
   }
 
   enum goal: {
-    'Tagadēja svara saglabāšana' => 0,
+    'Tagadējā svara saglabāšana' => 0,
     'Samazināt svaru' => 1,
     'Muskulatūras palielināšana' => 2,
     'Svara samazināšana un muskulatatūras palielināšana' => 3,
