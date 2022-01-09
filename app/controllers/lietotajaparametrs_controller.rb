@@ -1,4 +1,3 @@
-require "pry"
 class LietotajaparametrsController < ApplicationController
   before_action :set_lietotajaparametr, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
